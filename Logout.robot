@@ -1,8 +1,17 @@
 *** Settings ***
-Library    Selenium2Library    
+Library    Selenium2Library 
+Resource    All Veriables.robot   
 
 *** Keywords ***
 Logout
-    Click Element    xpath://*[@id="ecv-page-header"]/div[3]/div[1]/nav/ul/li/a/span/span/i
-    Click Element    xpath://*[@id="step4"]/li[6]/a/span
+    #Wait Until Page Does Not Contain   Assign "2018-2019 Emergency Information for Transpoters"
+    sleep   10  
+    Wait Until Page Does Not Contain   Loading
+    Wait Until Page Does Not Contain   Loading
+    Wait Until Page Does Not Contain   Loading
+      
+    Wait Until Element Is Enabled    ${HaderUserName}      timeout=30 seconds
+    Wait Until Element Is Visible    ${HaderUserName}      timeout=30 seconds
+    Click Element                    ${HaderUserName}
+    Click Element                    ${Logout}
         
