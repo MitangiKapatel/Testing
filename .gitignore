@@ -1,2 +1,5 @@
-.png
-.log
+.idea
+*.png
+*.log
+*.html
+*.xml
