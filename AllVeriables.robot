@@ -27,41 +27,43 @@ ${Radio Btn Name}      chk-team-type
 ${Save Team}           xpath://*[@id="side-nav"]/ul/li[1]/a/div[1]/i
 #creat team member
 ${Team_sidebar}        xpath://*[@id="step3"]/a/div[1]/i
-${Add TeamMember Btn}  xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[1]/div[2]/button[2]
+#${Add TeamMember Btn}  xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[1]/div[2]/button[2]
+${Add TeamMember Btn}  xpath://*[@class="add-member-button"]/button[2]
 ${TeamMember Email}    xpath://*[@id="autoEmail"]/div/input
 ${TeamMember Name}     xpath://*[@id="autoName"]/div/input
 ${TeamRole List}       xpath://*[@id="ddlTeamRole"]/div/span
-${Advocate Role}       xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[2]/div/md-virtual-repeat-container/div/div[2]/div[2]/div/div[3]/form/div[1]/fieldset/div/div/div[1]/div[3]/div/span/div[2]/ul[1]/li/div[4]/span/span
-${Assistant Role}      xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[2]/div/md-virtual-repeat-container/div/div[2]/div[2]/div/div[3]/form/div[1]/fieldset/div/div/div[1]/div[3]/div/span/div[2]/ul[1]/li/div[5]/span
+${Advocate Role}       xpath://*[@class="stop-click ng-binding ng-scope" and text()='Advocate']
+${Assistant Role}      xpath://*[@class="stop-click ng-binding ng-scope" and text()='Assistant']
 ${Team Invite Btn}     id:add-tm-invite
-${Send Invitation}     xpath:/html/body/div[1]/div/div/div/form/div/div[3]/button[2]
+${Send Invitation}     xpath://*[@daid="invite-send-invite-btn"]
 #Document
 ${Document Sidebar}    xpath://*[@id="side-nav"]/ul/li[3]/a/div[1]/i
 ${FolderOption}        id:folder-options-popover
-${SelectOpen}          xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/md-virtual-repeat-container/div/div[2]/div/div[3]/div/div/div/div/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/ul/li[1]/div/span
-
+${SelectOpen}          xpath://*[@daid="Open-link"]
+${Rename}              xpath://*[@daid="Rename-link"]
+${Move}                xpath://*[@daid="Move-link"]
 ${Upload Btn}          name:documentFile
 ${Drag&Drop Area}      xpath://*[@id="mobile_upload_file"]
 ${Upload FilePath}     /home/jeavio37/Documents/task.odt
-${Final Upload}        xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/div[3]/div/div/div[2]/div[1]/div/button[2]
+${Final Upload}        xpath://*[@daid="document-upload-btn"]
 
 #Discussion
 ${disscussionIcon}     xpath://*[@id="side-nav"]/ul/li[4]/a/div/i
-${DiscussionBtn}       xpath://*[@id="discussion-list"]/div[2]/div[3]/div/button
+${DiscussionBtn}       xpath://*[@daid="start-discussion-btn"]
 ${DiscussionTitle}     name:title
 ${DiscussionMsg}       name:message
 ${MsgEditer}           xpath://*[@id="message-editor"]/div/div[2]/div[1] 
-${CreatDisBtn}         xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/div[3]/div/div/div/div[2]/div/button[2]
+${CreatDisBtn}         xpath://*[@daid="discussion-start-btn"]
 
 
 #Forms
 ${formSidebar}         xpath://*[@id="side-nav"]/ul/li[5]/a/div[1]/i
 ${AvailableForm}       xpath://*[@daid="available-forms-tab"]
-${firstForm}           xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]/a
+${firstForm}           xpath://*[@class="ng-binding" and text()='2018-2019 Emergency Information for Transporters']
 ${AssignBtn}           xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[4]/button
 ${TeamMemSectList}     xpath://*[@id="teamMember"]/div
 ${ClickOnFirstTeam}    xpath:/html/body/div[1]/div/div/div/div[2]/form/div[2]/div/ul[1]/li/div[3]/span
-${finalAssign}         xpath:/html/body/div[1]/div/div/div/div[3]/div[2]
+${finalAssign}         xpath://*[@daid="form-assign-btn"]
 
 #Services
 ${Services Sidebar}    xpath://*[@id="side-nav"]/ul/li[7]/a/div[1]/span
@@ -69,7 +71,8 @@ ${Services Sidebar}    xpath://*[@id="side-nav"]/ul/li[7]/a/div[1]/span
 
 #Select Team
 ${TeamSectList}        name:teamListId
-${SelcTeamHeaderList}  xpath://*[@daid="Firstname Lastname"]/div[1]/div
+#${SelcTeamHeaderList}  xpath://*[@class="select-choice list-item-padding ng-scope"]/div[1]/div
+${SelcTeamHeaderList}  xpath://div[@class="ellipsis padding-top-8" and text()='Firstname Lastname']
 
 #Logout
 ${HaderUserName}       xpath://*[@id="ecv-page-header"]/div[3]/div[1]/nav/ul/li/a/span/span/i

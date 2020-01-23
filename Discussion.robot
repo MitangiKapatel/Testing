@@ -19,11 +19,14 @@ Start Discussions
     Loading
     Loading
     Loading
-    Wait Until Element Is Visible    ${DiscussionBtn}      timeout=60 seconds
-    Wait Until Element Is Enabled    ${DiscussionBtn}      timeout=60 seconds
+    
     Loading
     Loading  
     Loading
+    Wait Until Page Contains Element  ${DiscussionBtn}     timeout=30 seconds
+    Wait Until Element Is Visible    ${DiscussionBtn}      timeout=60 seconds
+    Wait Until Element Is Enabled    ${DiscussionBtn}      timeout=60 seconds
+    sleep   2
     Click Button                     ${DiscussionBtn}  
     Wait Until Element Is Visible    ${DiscussionTitle}    timeout=60 seconds
     Wait Until Element Is Enabled    ${DiscussionTitle}    timeout=60 seconds

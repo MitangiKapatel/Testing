@@ -20,4 +20,4 @@ Resource   AllVeriables.robot
     #Wait Until Element Is Enabled       ${SelcTeamHeaderList}      timeout=50 seconds
     #Click Element                       ${SelcTeamHeaderList}
     #Click Element                       xpath=id('global-cr')/li[text()='ABC XYZ']
-    Click Element    xpath://*[@id="ul-1"]/li[2]/md-autocomplete-parent-scope/div/div/div[2]    
+    Click Element    ${SelcTeamHeaderList}    

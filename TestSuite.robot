@@ -12,13 +12,16 @@ Resource    Discussion.robot
 Resource    Analytics.robot
 Resource    Services.robot
 Resource    Logout.robot
-#Suite Teardown    Close All Browsers
+Suite Teardown    Close All Browsers
+Default Tags    sanity
 
 *** Test Cases ***
 Success Login
+    [Tags]  smoke
     login with valid credential
     
 User Loged in Or Not
+    [Tags]  example
     Goto homepage and check for the valid Username 
     
 #Login Fails With anothorized Credential
@@ -35,16 +38,16 @@ Upload Document Success
     checking for the document
 
 Starting the Discussion Success
-     Start Discussions
+    Start Discussions
      
 Verifing the Forms Are Listed In Available Forms
      Verifing Forms
      
 Verifing the Analytics
-     Checking Analytics
+    Checking Analytics
      
 Checking for the Services
-     Checking Services
+    Checking Services
      
 Logout Success
      Logout
