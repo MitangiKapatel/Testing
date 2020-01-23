@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.1 on linux)" generated="20200122 13:01:43.009" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.8.1 on linux)" generated="20200123 11:04:47.307" rpa="false">
 <suite id="s1" name="Test" source="/home/jeavio37/eclipse-workspace/Test">
-<suite id="s1-s1" name="Main TestCase" source="/home/jeavio37/eclipse-workspace/Test/Main_TestCase.robot">
-<test id="s1-s1-t1" name="Check for the loging">
-<kw name="open the url">
-<kw name="Open Browser To Login Page" library="Open_Url">
+<suite id="s1-s1" name="TestSuite" source="/home/jeavio37/eclipse-workspace/Test/TestSuite.robot">
+<test id="s1-s1-t1" name="Success Login">
+<kw name="login with valid credential">
+<kw name="Open browser and redirect to login page" library="RedirectToURL">
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
@@ -12,33 +12,30 @@
 <arg>${BROWSER}</arg>
 <arg>options=add_argument("--disable-notifications")</arg>
 </arguments>
-<msg timestamp="20200122 13:01:43.352" level="INFO">Opening browser 'chrome' to base url 'https://staging.ecarevault.com/'.</msg>
-<status status="PASS" starttime="20200122 13:01:43.351" endtime="20200122 13:03:16.218"></status>
+<msg timestamp="20200123 11:04:47.529" level="INFO">Opening browser 'chrome' to base url 'https://staging.ecarevault.com/'.</msg>
+<status status="PASS" starttime="20200123 11:04:47.528" endtime="20200123 11:05:12.462"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20200122 13:03:16.220" endtime="20200122 13:03:16.328"></status>
+<status status="PASS" starttime="20200123 11:05:12.466" endtime="20200123 11:05:12.581"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:01:43.351" endtime="20200122 13:03:16.329"></status>
+<status status="PASS" starttime="20200123 11:04:47.528" endtime="20200123 11:05:12.582"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:01:43.350" endtime="20200122 13:03:16.329"></status>
-</kw>
-<kw name="login with valid credential">
-<kw name="login" library="login">
+<kw name="login" library="Login">
 <kw name="Wait Until Page Contains Element" library="Selenium2Library">
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
 <arguments>
-<arg>${google_login_btn}</arg>
+<arg>${Gmail login_btn}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:16.334" endtime="20200122 13:03:16.363"></status>
+<status status="PASS" starttime="20200123 11:05:12.588" endtime="20200123 11:05:12.733"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${google_login_btn}</arg>
+<arg>${Gmail login_btn}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:16.364" level="INFO">Clicking element 'xpath://*[@id="gglCustomBtn"]'.</msg>
-<status status="PASS" starttime="20200122 13:03:16.364" endtime="20200122 13:03:16.538"></status>
+<msg timestamp="20200123 11:05:12.734" level="INFO">Clicking element 'xpath://*[@id="gglCustomBtn"]'.</msg>
+<status status="PASS" starttime="20200123 11:05:12.733" endtime="20200123 11:05:12.882"></status>
 </kw>
 <kw name="Get Window Handles" library="Selenium2Library">
 <doc>Returns all child window handles of the selected browser as a list.</doc>
@@ -48,8 +45,8 @@
 <assign>
 <var>@{windows}</var>
 </assign>
-<msg timestamp="20200122 13:03:16.543" level="INFO">@{windows} = [ CDwindow-C66E6257E8ACC7142F1189ADA3673CD2 | CDwindow-7DC365F1B08B5D7888AB5841FCD08634 ]</msg>
-<status status="PASS" starttime="20200122 13:03:16.539" endtime="20200122 13:03:16.544"></status>
+<msg timestamp="20200123 11:05:12.888" level="INFO">@{windows} = [ CDwindow-4E724A82FA653754707C3611F8CA98ED | CDwindow-4D69F73B84E2310D9BB834AFBE6B513C ]</msg>
+<status status="PASS" starttime="20200123 11:05:12.882" endtime="20200123 11:05:12.888"></status>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <doc>Returns and logs the length of the given item as an integer.</doc>
@@ -59,9 +56,9 @@
 <assign>
 <var>${numWindows}</var>
 </assign>
-<msg timestamp="20200122 13:03:16.545" level="INFO">Length is 2</msg>
-<msg timestamp="20200122 13:03:16.546" level="INFO">${numWindows} = 2</msg>
-<status status="PASS" starttime="20200122 13:03:16.544" endtime="20200122 13:03:16.547"></status>
+<msg timestamp="20200123 11:05:12.889" level="INFO">Length is 2</msg>
+<msg timestamp="20200123 11:05:12.889" level="INFO">${numWindows} = 2</msg>
+<status status="PASS" starttime="20200123 11:05:12.888" endtime="20200123 11:05:12.890"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the results.</doc>
@@ -71,83 +68,83 @@
 <assign>
 <var>${indexLast}</var>
 </assign>
-<msg timestamp="20200122 13:03:16.551" level="INFO">${indexLast} = 1</msg>
-<status status="PASS" starttime="20200122 13:03:16.548" endtime="20200122 13:03:16.554"></status>
+<msg timestamp="20200123 11:05:12.891" level="INFO">${indexLast} = 1</msg>
+<status status="PASS" starttime="20200123 11:05:12.890" endtime="20200123 11:05:12.892"></status>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <doc>Fails if the given condition is not true.</doc>
 <arguments>
 <arg>${numWindows} &gt; 1</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:16.555" endtime="20200122 13:03:16.556"></status>
+<status status="PASS" starttime="20200123 11:05:12.892" endtime="20200123 11:05:12.896"></status>
 </kw>
 <kw name="Select Window" library="Selenium2Library">
 <doc>DEPRECATED in Selenium2Library 4.0. , use `Switch Window` instead.</doc>
 <arguments>
 <arg>@{windows}[${indexLast}]</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:16.558" endtime="20200122 13:03:16.756"></status>
+<status status="PASS" starttime="20200123 11:05:12.898" endtime="20200123 11:05:12.979"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>${email_text}</arg>
+<arg>${Email Text Field}</arg>
 <arg>timeout=40 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:16.757" endtime="20200122 13:03:23.508"></status>
+<status status="PASS" starttime="20200123 11:05:12.981" endtime="20200123 11:05:19.625"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>${email_text}</arg>
-<arg>mitangi@jeavio.com</arg>
+<arg>${Email Text Field}</arg>
+<arg>${EmailID}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:23.509" level="INFO">Typing text 'mitangi@jeavio.com' into text field 'xpath://*[@id="identifierId"]'.</msg>
-<status status="PASS" starttime="20200122 13:03:23.508" endtime="20200122 13:03:23.895"></status>
+<msg timestamp="20200123 11:05:19.627" level="INFO">Typing text 'mitangi@jeavio.com' into text field 'xpath://*[@id="identifierId"]'.</msg>
+<status status="PASS" starttime="20200123 11:05:19.626" endtime="20200123 11:05:19.872"></status>
 </kw>
 <kw name="Press Keys" library="Selenium2Library">
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
 <arguments>
-<arg>${email next btn}</arg>
+<arg>${Email Next btn}</arg>
 <arg>\\13</arg>
 </arguments>
-<msg timestamp="20200122 13:03:23.897" level="INFO">Sending key(s) ('\\13',) to xpath://*[@class="RveJvd snByac"] element.</msg>
-<msg timestamp="20200122 13:03:23.926" level="INFO">Sending keys \13</msg>
-<status status="PASS" starttime="20200122 13:03:23.895" endtime="20200122 13:03:24.239"></status>
+<msg timestamp="20200123 11:05:19.873" level="INFO">Sending key(s) ('\\13',) to xpath://*[@class="RveJvd snByac"] element.</msg>
+<msg timestamp="20200123 11:05:19.889" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20200123 11:05:19.872" endtime="20200123 11:05:20.096"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>3</arg>
 </arguments>
-<msg timestamp="20200122 13:03:27.240" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200122 13:03:24.239" endtime="20200122 13:03:27.241"></status>
+<msg timestamp="20200123 11:05:23.098" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20200123 11:05:20.097" endtime="20200123 11:05:23.098"></status>
 </kw>
 <kw name="Input Password" library="Selenium2Library">
 <doc>Types the given password into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>${password text}</arg>
-<arg>Mitu1113@</arg>
+<arg>${Password TextField}</arg>
+<arg>${Password}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:27.243" level="INFO">Typing password into text field 'xpath://*[@class="whsOnd zHQkBf"]'.</msg>
-<status status="PASS" starttime="20200122 13:03:27.242" endtime="20200122 13:03:27.496"></status>
+<msg timestamp="20200123 11:05:23.101" level="INFO">Typing password into text field 'xpath://*[@class="whsOnd zHQkBf"]'.</msg>
+<status status="PASS" starttime="20200123 11:05:23.099" endtime="20200123 11:05:23.299"></status>
 </kw>
 <kw name="Press Keys" library="Selenium2Library">
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
 <arguments>
-<arg>${password next btn}</arg>
+<arg>${Password Next btn}</arg>
 <arg>\\13</arg>
 </arguments>
-<msg timestamp="20200122 13:03:27.501" level="INFO">Sending key(s) ('\\13',) to xpath://*[@class="RveJvd snByac"] element.</msg>
-<msg timestamp="20200122 13:03:27.522" level="INFO">Sending keys \13</msg>
-<status status="PASS" starttime="20200122 13:03:27.498" endtime="20200122 13:03:27.803"></status>
+<msg timestamp="20200123 11:05:23.300" level="INFO">Sending key(s) ('\\13',) to xpath://*[@class="RveJvd snByac"] element.</msg>
+<msg timestamp="20200123 11:05:23.313" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20200123 11:05:23.299" endtime="20200123 11:05:23.537"></status>
 </kw>
 <kw name="Select Window" library="Selenium2Library">
 <doc>DEPRECATED in Selenium2Library 4.0. , use `Switch Window` instead.</doc>
 <arguments>
 <arg>${ecvPageTitle}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:27.804" endtime="20200122 13:03:27.894"></status>
+<status status="PASS" starttime="20200123 11:05:23.537" endtime="20200123 11:05:23.610"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -155,7 +152,7 @@
 <arg>${vaultkey}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:27.895" endtime="20200122 13:03:35.249"></status>
+<status status="PASS" starttime="20200123 11:05:23.611" endtime="20200123 11:05:30.594"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
@@ -163,7 +160,7 @@
 <arg>${vaultkey}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:35.251" endtime="20200122 13:03:35.336"></status>
+<status status="PASS" starttime="20200123 11:05:30.595" endtime="20200123 11:05:30.632"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
@@ -171,16 +168,16 @@
 <arg>Loading</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:35.337" endtime="20200122 13:03:36.150"></status>
+<status status="PASS" starttime="20200123 11:05:30.632" endtime="20200123 11:05:31.455"></status>
 </kw>
 <kw name="Input Password" library="Selenium2Library">
 <doc>Types the given password into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>${vaultkey}</arg>
-<arg>ABCxyz123@</arg>
+<arg>${ValtkeyPassword}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:36.152" level="INFO">Typing password into text field 'xpath://*[@id="password"]'.</msg>
-<status status="PASS" starttime="20200122 13:03:36.151" endtime="20200122 13:03:36.527"></status>
+<msg timestamp="20200123 11:05:31.456" level="INFO">Typing password into text field 'xpath://*[@id="password"]'.</msg>
+<status status="PASS" starttime="20200123 11:05:31.455" endtime="20200123 11:05:31.757"></status>
 </kw>
 <kw name="Press Keys" library="Selenium2Library">
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
@@ -188,178 +185,186 @@
 <arg>id:submit</arg>
 <arg>\\13</arg>
 </arguments>
-<msg timestamp="20200122 13:03:36.531" level="INFO">Sending key(s) ('\\13',) to id:submit element.</msg>
-<msg timestamp="20200122 13:03:36.560" level="INFO">Sending keys \13</msg>
-<status status="PASS" starttime="20200122 13:03:36.528" endtime="20200122 13:03:36.706"></status>
+<msg timestamp="20200123 11:05:31.759" level="INFO">Sending key(s) ('\\13',) to id:submit element.</msg>
+<msg timestamp="20200123 11:05:31.773" level="INFO">Sending keys \13</msg>
+<status status="PASS" starttime="20200123 11:05:31.758" endtime="20200123 11:05:31.840"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:16.332" endtime="20200122 13:03:36.706"></status>
+<status status="PASS" starttime="20200123 11:05:12.584" endtime="20200123 11:05:31.840"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:16.330" endtime="20200122 13:03:36.706"></status>
+<status status="PASS" starttime="20200123 11:04:47.528" endtime="20200123 11:05:31.840"></status>
 </kw>
-<kw name="Checking for the homepage">
-<kw name="goto homepage" library="home_Page">
+<status status="PASS" starttime="20200123 11:04:47.527" endtime="20200123 11:05:31.841" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="User Loged in Or Not">
+<kw name="Goto homepage and check for the valid Username" library="HomePage">
 <kw name="Page Should Contain" library="Selenium2Library">
 <doc>Verifies that current page contains ``text``.</doc>
 <arguments>
 <arg>Mitangi Kapatel</arg>
 </arguments>
-<msg timestamp="20200122 13:03:36.729" level="INFO">Current page contains text 'Mitangi Kapatel'.</msg>
-<status status="PASS" starttime="20200122 13:03:36.708" endtime="20200122 13:03:36.729"></status>
+<msg timestamp="20200123 11:05:31.871" level="INFO">Current page contains text 'Mitangi Kapatel'.</msg>
+<status status="PASS" starttime="20200123 11:05:31.842" endtime="20200123 11:05:31.871"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:36.730" endtime="20200122 13:03:40.004"></status>
+<status status="PASS" starttime="20200123 11:05:31.871" endtime="20200123 11:05:35.065"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:36.707" endtime="20200122 13:03:40.005"></status>
+<status status="PASS" starttime="20200123 11:05:31.842" endtime="20200123 11:05:35.066"></status>
 </kw>
-<kw name="create new team" library="create_new_team">
+<status status="PASS" starttime="20200123 11:05:31.841" endtime="20200123 11:05:35.066" critical="yes"></status>
+</test>
+<test id="s1-s1-t3" name="Create Team Success">
+<kw name="create new team" library="CreateNewTeam">
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${TeamCreationLogo}</arg>
+<arg>${Team Creation Logo}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:40.009" level="INFO">Clicking element 'xpath://*[@id="ecv-page-header"]/div[3]/nav/button/div/i'.</msg>
-<status status="PASS" starttime="20200122 13:03:40.007" endtime="20200122 13:03:40.257"></status>
+<msg timestamp="20200123 11:05:35.076" level="INFO">Clicking element 'xpath://*[@id="ecv-page-header"]/div[3]/nav/button/div/i'.</msg>
+<status status="PASS" starttime="20200123 11:05:35.074" endtime="20200123 11:05:35.394"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:40.262" endtime="20200122 13:03:41.944"></status>
+<status status="PASS" starttime="20200123 11:05:35.395" endtime="20200123 11:05:36.422"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:40.261" endtime="20200122 13:03:41.944"></status>
+<status status="PASS" starttime="20200123 11:05:35.395" endtime="20200123 11:05:36.422"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:41.945" endtime="20200122 13:03:41.969"></status>
+<status status="PASS" starttime="20200123 11:05:36.424" endtime="20200123 11:05:36.437"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:41.945" endtime="20200122 13:03:41.969"></status>
+<status status="PASS" starttime="20200123 11:05:36.423" endtime="20200123 11:05:36.438"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>3</arg>
 </arguments>
-<msg timestamp="20200122 13:03:44.970" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200122 13:03:41.970" endtime="20200122 13:03:44.971"></status>
+<msg timestamp="20200123 11:05:39.440" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20200123 11:05:36.439" endtime="20200123 11:05:39.441"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>${TeamCheckbox}</arg>
+<arg>${Team Checkbox}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:44.973" endtime="20200122 13:03:45.067"></status>
+<status status="PASS" starttime="20200123 11:05:39.442" endtime="20200123 11:05:39.498"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
-<arg>${TeamCheckbox}</arg>
+<arg>${Team Checkbox}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:45.069" endtime="20200122 13:03:45.118"></status>
+<status status="PASS" starttime="20200123 11:05:39.498" endtime="20200123 11:05:39.517"></status>
 </kw>
 <kw name="Select Radio Button" library="Selenium2Library">
 <doc>Sets the radio button group ``group_name`` to ``value``.</doc>
 <arguments>
-<arg>chk-team-type</arg>
+<arg>${Radio Btn Name}</arg>
 <arg>team</arg>
 </arguments>
-<msg timestamp="20200122 13:03:45.119" level="INFO">Selecting 'team' from radio button 'chk-team-type'.</msg>
-<status status="PASS" starttime="20200122 13:03:45.119" endtime="20200122 13:03:45.164"></status>
+<msg timestamp="20200123 11:05:39.518" level="INFO">Selecting 'team' from radio button 'chk-team-type'.</msg>
+<status status="PASS" starttime="20200123 11:05:39.517" endtime="20200123 11:05:39.536"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>${Team_Firstname}</arg>
-<arg>Firstname</arg>
+<arg>${Firstname}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:45.165" level="INFO">Typing text 'Firstname' into text field 'id:firstName'.</msg>
-<status status="PASS" starttime="20200122 13:03:45.164" endtime="20200122 13:03:45.470"></status>
+<msg timestamp="20200123 11:05:39.537" level="INFO">Typing text 'FirstName' into text field 'id:firstName'.</msg>
+<status status="PASS" starttime="20200123 11:05:39.537" endtime="20200123 11:05:39.739"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>${Team Lastname}</arg>
-<arg>Lastname</arg>
+<arg>${Lastname}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:45.472" level="INFO">Typing text 'Lastname' into text field 'id:lastName'.</msg>
-<status status="PASS" starttime="20200122 13:03:45.471" endtime="20200122 13:03:45.703"></status>
+<msg timestamp="20200123 11:05:39.740" level="INFO">Typing text 'LastName' into text field 'id:lastName'.</msg>
+<status status="PASS" starttime="20200123 11:05:39.740" endtime="20200123 11:05:39.948"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>${Team BD}</arg>
-<arg>11/12/1920</arg>
+<arg>${BirthDate}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:45.705" level="INFO">Typing text '11/12/1920' into text field 'id:birthDate'.</msg>
-<status status="PASS" starttime="20200122 13:03:45.704" endtime="20200122 13:03:46.054"></status>
+<msg timestamp="20200123 11:05:39.951" level="INFO">Typing text '11/12/1920' into text field 'id:birthDate'.</msg>
+<status status="PASS" starttime="20200123 11:05:39.949" endtime="20200123 11:05:40.202"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${SaveTeam}</arg>
+<arg>${Save Team}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:46.056" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[1]/a/div[1]/i'.</msg>
-<status status="PASS" starttime="20200122 13:03:46.055" endtime="20200122 13:03:46.344"></status>
+<msg timestamp="20200123 11:05:40.203" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[1]/a/div[1]/i'.</msg>
+<status status="PASS" starttime="20200123 11:05:40.203" endtime="20200123 11:05:40.315"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:40.005" endtime="20200122 13:03:46.345"></status>
+<status status="PASS" starttime="20200123 11:05:35.072" endtime="20200123 11:05:40.317"></status>
 </kw>
-<kw name="select team" library="Team_Selection">
-<kw name="Loading" library="All Veriables">
+<status status="PASS" starttime="20200123 11:05:35.067" endtime="20200123 11:05:40.318" critical="yes"></status>
+</test>
+<test id="s1-s1-t4" name="Create Team Member Success">
+<kw name="select team" library="TeamSelection">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:46.348" endtime="20200122 13:03:47.348"></status>
+<status status="PASS" starttime="20200123 11:05:40.326" endtime="20200123 11:05:41.006"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:46.347" endtime="20200122 13:03:47.348"></status>
+<status status="PASS" starttime="20200123 11:05:40.324" endtime="20200123 11:05:41.006"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.349" endtime="20200122 13:03:47.371"></status>
+<status status="PASS" starttime="20200123 11:05:41.007" endtime="20200123 11:05:41.019"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:47.349" endtime="20200122 13:03:47.371"></status>
+<status status="PASS" starttime="20200123 11:05:41.007" endtime="20200123 11:05:41.019"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.372" endtime="20200122 13:03:47.385"></status>
+<status status="PASS" starttime="20200123 11:05:41.020" endtime="20200123 11:05:41.029"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:47.372" endtime="20200122 13:03:47.385"></status>
+<status status="PASS" starttime="20200123 11:05:41.019" endtime="20200123 11:05:41.030"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.385" endtime="20200122 13:03:47.406"></status>
+<status status="PASS" starttime="20200123 11:05:41.031" endtime="20200123 11:05:41.042"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:47.385" endtime="20200122 13:03:47.407"></status>
+<status status="PASS" starttime="20200123 11:05:41.031" endtime="20200123 11:05:41.042"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
@@ -367,7 +372,7 @@
 <arg>Please enter your Vault Key</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.408" endtime="20200122 13:03:47.427"></status>
+<status status="PASS" starttime="20200123 11:05:41.043" endtime="20200123 11:05:41.056"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
@@ -375,7 +380,7 @@
 <arg>Desktop</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.427" endtime="20200122 13:03:47.445"></status>
+<status status="PASS" starttime="20200123 11:05:41.057" endtime="20200123 11:05:41.070"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -383,7 +388,7 @@
 <arg>${TeamSectList}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.446" endtime="20200122 13:03:47.476"></status>
+<status status="PASS" starttime="20200123 11:05:41.071" endtime="20200123 11:05:41.096"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
@@ -391,246 +396,416 @@
 <arg>${TeamSectList}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.476" endtime="20200122 13:03:47.500"></status>
+<status status="PASS" starttime="20200123 11:05:41.096" endtime="20200123 11:05:41.118"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${TeamSectList}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:47.501" level="INFO">Clicking element 'name:teamListId'.</msg>
-<status status="PASS" starttime="20200122 13:03:47.501" endtime="20200122 13:03:47.646"></status>
+<msg timestamp="20200123 11:05:41.118" level="INFO">Clicking element 'name:teamListId'.</msg>
+<status status="PASS" starttime="20200123 11:05:41.118" endtime="20200123 11:05:41.239"></status>
 </kw>
 <kw name="Element Should Be Enabled" library="Selenium2Library">
 <doc>Verifies that element identified by ``locator`` is enabled.</doc>
 <arguments>
 <arg>${TeamSectList}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.647" endtime="20200122 13:03:47.709"></status>
+<status status="PASS" starttime="20200123 11:05:41.240" endtime="20200123 11:05:41.281"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://*[@id="ul-1"]/li[2]/md-autocomplete-parent-scope/div/div/div[2]</arg>
 </arguments>
-<msg timestamp="20200122 13:03:47.709" level="INFO">Clicking element 'xpath://*[@id="ul-1"]/li[2]/md-autocomplete-parent-scope/div/div/div[2]'.</msg>
-<status status="PASS" starttime="20200122 13:03:47.709" endtime="20200122 13:03:47.817"></status>
+<msg timestamp="20200123 11:05:41.285" level="INFO">Clicking element 'xpath://*[@id="ul-1"]/li[2]/md-autocomplete-parent-scope/div/div/div[2]'.</msg>
+<status status="PASS" starttime="20200123 11:05:41.283" endtime="20200123 11:05:41.393"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:46.345" endtime="20200122 13:03:47.818"></status>
+<status status="PASS" starttime="20200123 11:05:40.322" endtime="20200123 11:05:41.394"></status>
 </kw>
-<kw name="checking for the document" library="Documet">
-<kw name="Loading" library="All Veriables">
+<kw name="create new team member" library="CreateNewTeamMember">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
-<arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:47.820" endtime="20200122 13:03:49.599"></status>
-</kw>
-<status status="PASS" starttime="20200122 13:03:47.819" endtime="20200122 13:03:49.599"></status>
-</kw>
-<kw name="Loading" library="All Veriables">
-<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
-<doc>Waits until ``text`` disappears from the current page.</doc>
-<arguments>
-<arg>Loading</arg>
-<arg>timeout=30seconds</arg>
-</arguments>
-<status status="PASS" starttime="20200122 13:03:49.601" endtime="20200122 13:03:49.618"></status>
-</kw>
-<status status="PASS" starttime="20200122 13:03:49.600" endtime="20200122 13:03:49.619"></status>
-</kw>
-<kw name="Loading" library="All Veriables">
-<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
-<doc>Waits until ``text`` disappears from the current page.</doc>
-<arguments>
-<arg>Loading</arg>
-<arg>timeout=30seconds</arg>
-</arguments>
-<status status="PASS" starttime="20200122 13:03:49.619" endtime="20200122 13:03:49.864"></status>
-</kw>
-<status status="PASS" starttime="20200122 13:03:49.619" endtime="20200122 13:03:49.864"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${docu Sidebar}</arg>
-<arg>timeout=30 seconds</arg>
-</arguments>
-<status status="PASS" starttime="20200122 13:03:49.865" endtime="20200122 13:03:49.936"></status>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<arguments>
-<arg>${docu Sidebar}</arg>
-<arg>timeout=30 seconds</arg>
-</arguments>
-<status status="PASS" starttime="20200122 13:03:49.943" endtime="20200122 13:03:49.981"></status>
+<status status="PASS" starttime="20200123 11:05:41.396" endtime="20200123 11:05:43.196"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${docu Sidebar}</arg>
+<arg>${Team_sidebar}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:49.982" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[3]/a/div[1]/i'.</msg>
-<status status="PASS" starttime="20200122 13:03:49.981" endtime="20200122 13:03:50.316"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${FolderOption}</arg>
-</arguments>
-<status status="PASS" starttime="20200122 13:03:50.316" endtime="20200122 13:03:51.975"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${FolderOption}</arg>
-</arguments>
-<msg timestamp="20200122 13:03:51.979" level="INFO">Clicking element 'id:folder-options-popover'.</msg>
-<status status="PASS" starttime="20200122 13:03:51.976" endtime="20200122 13:03:52.105"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${selectOpen}</arg>
-<arg>timeout=20 seconds</arg>
-</arguments>
-<status status="PASS" starttime="20200122 13:03:52.107" endtime="20200122 13:03:52.147"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${selectOpen}</arg>
-</arguments>
-<msg timestamp="20200122 13:03:52.149" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/md-virtual-repeat-container/div/div[2]/div/div[3]/div/div/div/div/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/ul/li[1]/div/span'.</msg>
-<status status="PASS" starttime="20200122 13:03:52.148" endtime="20200122 13:03:52.314"></status>
-</kw>
-<kw name="Loading" library="All Veriables">
-<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
-<doc>Waits until ``text`` disappears from the current page.</doc>
-<arguments>
-<arg>Loading</arg>
-<arg>timeout=30seconds</arg>
-</arguments>
-<status status="PASS" starttime="20200122 13:03:52.317" endtime="20200122 13:03:52.336"></status>
-</kw>
-<status status="PASS" starttime="20200122 13:03:52.315" endtime="20200122 13:03:52.337"></status>
-</kw>
-<kw name="Go Back" library="Selenium2Library">
-<doc>Simulates the user clicking the back button on their browser.</doc>
-<status status="PASS" starttime="20200122 13:03:52.339" endtime="20200122 13:03:52.476"></status>
+<msg timestamp="20200123 11:05:43.197" level="INFO">Clicking element 'xpath://*[@id="step3"]/a/div[1]/i'.</msg>
+<status status="PASS" starttime="20200123 11:05:43.196" endtime="20200123 11:05:43.322"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
-<arg>5</arg>
+<arg>10</arg>
 </arguments>
-<msg timestamp="20200122 13:03:57.477" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20200122 13:03:52.476" endtime="20200122 13:03:57.478"></status>
+<msg timestamp="20200123 11:05:53.324" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20200123 11:05:43.323" endtime="20200123 11:05:53.325"></status>
 </kw>
-<kw name="Click Button" library="Selenium2Library">
-<doc>Clicks the button identified by ``locator``.</doc>
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
-<arg>${uploadBtn}</arg>
+<arg>Desktop</arg>
 </arguments>
-<msg timestamp="20200122 13:03:57.482" level="INFO">Clicking button 'name:documentFile'.</msg>
-<status status="PASS" starttime="20200122 13:03:57.480" endtime="20200122 13:03:57.686"></status>
+<status status="PASS" starttime="20200123 11:05:53.327" endtime="20200123 11:05:53.366"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Add TeamMember Btn}</arg>
+<arg>timeout=30 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:05:53.366" endtime="20200123 11:05:53.406"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
-<arg>${drag$dropArea}</arg>
+<arg>${Add TeamMember Btn}</arg>
+<arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:57.687" endtime="20200122 13:03:58.534"></status>
+<status status="PASS" starttime="20200123 11:05:53.406" endtime="20200123 11:05:53.439"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Add TeamMember Btn}</arg>
+</arguments>
+<msg timestamp="20200123 11:05:53.439" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[1]/div[2]/button[2]'.</msg>
+<status status="PASS" starttime="20200123 11:05:53.439" endtime="20200123 11:05:53.644"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TeamMember Email}</arg>
+<arg>timeout=30 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:05:53.644" endtime="20200123 11:05:53.718"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${TeamMember Email}</arg>
+<arg>timeout=30 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:05:53.718" endtime="20200123 11:05:53.748"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TeamMember Email}</arg>
+<arg>${TeamMemberEmailAddress}</arg>
+</arguments>
+<msg timestamp="20200123 11:05:53.752" level="INFO">Typing text 'Memberteammember@gmail.com' into text field 'xpath://*[@id="autoEmail"]/div/input'.</msg>
+<status status="PASS" starttime="20200123 11:05:53.751" endtime="20200123 11:05:54.233"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TeamMember Name}</arg>
+<arg>${TeamMEmberFullName}</arg>
+</arguments>
+<msg timestamp="20200123 11:05:54.234" level="INFO">Typing text 'MemberTeammember name' into text field 'xpath://*[@id="autoName"]/div/input'.</msg>
+<status status="PASS" starttime="20200123 11:05:54.234" endtime="20200123 11:05:54.754"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TeamRole List}</arg>
+</arguments>
+<msg timestamp="20200123 11:05:54.755" level="INFO">Clicking element 'xpath://*[@id="ddlTeamRole"]/div/span'.</msg>
+<status status="PASS" starttime="20200123 11:05:54.754" endtime="20200123 11:05:54.965"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${AssistantRole}</arg>
+</arguments>
+<msg timestamp="20200123 11:05:54.968" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[2]/div/md-virtual-repeat-container/div/div[2]/div[2]/div/div[3]/form/div[1]/fieldset/div/div/div[1]/div[3]/div/span/div[2]/ul[1]/li/div[5]/span'.</msg>
+<status status="PASS" starttime="20200123 11:05:54.966" endtime="20200123 11:05:55.288"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Team Invite Btn}</arg>
+</arguments>
+<msg timestamp="20200123 11:05:55.290" level="INFO">Clicking button 'id:add-tm-invite'.</msg>
+<status status="PASS" starttime="20200123 11:05:55.289" endtime="20200123 11:05:55.470"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Send Invitation}</arg>
+<arg>timeout=30 seconds</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200123 11:06:25.910" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-475.png"&gt;&lt;img src="selenium-screenshot-475.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200123 11:06:25.619" endtime="20200123 11:06:25.910"></status>
+</kw>
+<msg timestamp="20200123 11:06:25.911" level="FAIL">Element 'xpath:/html/body/div[1]/div/div/div/form/div/div[3]/button[2]' not visible after 30 seconds.</msg>
+<status status="FAIL" starttime="20200123 11:05:55.470" endtime="20200123 11:06:25.911"></status>
+</kw>
+<status status="FAIL" starttime="20200123 11:05:41.395" endtime="20200123 11:06:25.912"></status>
+</kw>
+<status status="FAIL" starttime="20200123 11:05:40.320" endtime="20200123 11:06:25.912" critical="yes">Element 'xpath:/html/body/div[1]/div/div/div/form/div/div[3]/button[2]' not visible after 30 seconds.</status>
+</test>
+<test id="s1-s1-t5" name="Upload Document Success">
+<kw name="checking for the document" library="Documet">
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:25.913" endtime="20200123 11:06:25.926"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:06:25.913" endtime="20200123 11:06:25.926"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:25.926" endtime="20200123 11:06:25.938"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:06:25.926" endtime="20200123 11:06:25.938"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:25.939" endtime="20200123 11:06:25.947"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:06:25.939" endtime="20200123 11:06:25.947"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Document Sidebar}</arg>
+<arg>timeout=30 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:25.948" endtime="20200123 11:06:25.969"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${Document Sidebar}</arg>
+<arg>timeout=30 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:25.969" endtime="20200123 11:06:25.987"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Document Sidebar}</arg>
+</arguments>
+<msg timestamp="20200123 11:06:25.988" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[3]/a/div[1]/i'.</msg>
+<status status="PASS" starttime="20200123 11:06:25.988" endtime="20200123 11:06:26.193"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${FolderOption}</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:26.194" endtime="20200123 11:06:27.177"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${FolderOption}</arg>
+</arguments>
+<msg timestamp="20200123 11:06:27.178" level="INFO">Clicking element 'id:folder-options-popover'.</msg>
+<status status="PASS" starttime="20200123 11:06:27.178" endtime="20200123 11:06:27.359"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SelectOpen}</arg>
+<arg>timeout=20 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:27.359" endtime="20200123 11:06:27.417"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SelectOpen}</arg>
+</arguments>
+<msg timestamp="20200123 11:06:27.417" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/md-virtual-repeat-container/div/div[2]/div/div[3]/div/div/div/div/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/ul/li[1]/div/span'.</msg>
+<status status="PASS" starttime="20200123 11:06:27.417" endtime="20200123 11:06:27.557"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:27.558" endtime="20200123 11:06:27.576"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:06:27.557" endtime="20200123 11:06:27.577"></status>
+</kw>
+<kw name="Go Back" library="Selenium2Library">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20200123 11:06:27.579" endtime="20200123 11:06:27.688"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:27.689" endtime="20200123 11:06:28.426"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:06:27.688" endtime="20200123 11:06:28.427"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:28.428" endtime="20200123 11:06:28.441"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:06:28.428" endtime="20200123 11:06:28.441"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:28.444" endtime="20200123 11:06:28.456"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:06:28.442" endtime="20200123 11:06:28.457"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Upload Btn}</arg>
+<arg>timeout=50 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:28.458" endtime="20200123 11:06:28.494"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${Upload Btn}</arg>
+<arg>timeout=50 seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:28.495" endtime="20200123 11:06:28.525"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Upload Btn}</arg>
+</arguments>
+<msg timestamp="20200123 11:06:28.526" level="INFO">Clicking button 'name:documentFile'.</msg>
+<status status="PASS" starttime="20200123 11:06:28.525" endtime="20200123 11:06:28.632"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${Drag&amp;Drop Area}</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:06:28.633" endtime="20200123 11:06:29.138"></status>
 </kw>
 <kw name="Choose File" library="Selenium2Library">
 <doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
 <arguments>
-<arg>${drag$dropArea}</arg>
-<arg>${UploadfilePath}</arg>
+<arg>${Drag&amp;Drop Area}</arg>
+<arg>${Upload FilePath}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:58.537" level="INFO">Sending /home/jeavio37/Documents/task.odt to browser.</msg>
-<status status="PASS" starttime="20200122 13:03:58.534" endtime="20200122 13:03:58.778"></status>
+<msg timestamp="20200123 11:06:29.140" level="INFO">Sending /home/jeavio37/Documents/task.odt to browser.</msg>
+<status status="PASS" starttime="20200123 11:06:29.139" endtime="20200123 11:06:29.258"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
-<arg>${finalUpload}</arg>
+<arg>${Final Upload}</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:58.779" endtime="20200122 13:03:59.263"></status>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200123 11:06:59.776" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-476.png"&gt;&lt;img src="selenium-screenshot-476.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200123 11:06:59.474" endtime="20200123 11:06:59.777"></status>
 </kw>
-<kw name="Click Button" library="Selenium2Library">
-<doc>Clicks the button identified by ``locator``.</doc>
-<arguments>
-<arg>${finalUpload}</arg>
-</arguments>
-<msg timestamp="20200122 13:03:59.264" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/div[3]/div/div/div[2]/div[1]/div/button[2]'.</msg>
-<status status="PASS" starttime="20200122 13:03:59.263" endtime="20200122 13:03:59.413"></status>
+<msg timestamp="20200123 11:06:59.779" level="FAIL">Element with locator 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/div[3]/div/div/div[2]/div[1]/div/button[2]' not found.</msg>
+<status status="FAIL" starttime="20200123 11:06:29.259" endtime="20200123 11:06:59.779"></status>
 </kw>
-<kw name="Go Back" library="Selenium2Library">
-<doc>Simulates the user clicking the back button on their browser.</doc>
-<status status="PASS" starttime="20200122 13:03:59.414" endtime="20200122 13:03:59.693"></status>
+<status status="FAIL" starttime="20200123 11:06:25.913" endtime="20200123 11:06:59.779"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:47.818" endtime="20200122 13:03:59.694"></status>
-</kw>
-<kw name="Discussions" library="Discussion">
-<kw name="Loading" library="All Veriables">
+<status status="FAIL" starttime="20200123 11:06:25.912" endtime="20200123 11:06:59.779" critical="yes">Element with locator 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/div[3]/div/div/div[2]/div[1]/div/button[2]' not found.</status>
+</test>
+<test id="s1-s1-t6" name="Starting the Discussion Success">
+<kw name="Start Discussions" library="Discussion">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:59.699" endtime="20200122 13:03:59.745"></status>
+<status status="PASS" starttime="20200123 11:06:59.781" endtime="20200123 11:06:59.791"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:59.697" endtime="20200122 13:03:59.746"></status>
+<status status="PASS" starttime="20200123 11:06:59.781" endtime="20200123 11:06:59.791"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:59.746" endtime="20200122 13:03:59.762"></status>
+<status status="PASS" starttime="20200123 11:06:59.792" endtime="20200123 11:06:59.801"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:59.746" endtime="20200122 13:03:59.762"></status>
+<status status="PASS" starttime="20200123 11:06:59.791" endtime="20200123 11:06:59.801"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:59.763" endtime="20200122 13:03:59.779"></status>
+<status status="PASS" starttime="20200123 11:06:59.801" endtime="20200123 11:06:59.809"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:59.762" endtime="20200122 13:03:59.780"></status>
+<status status="PASS" starttime="20200123 11:06:59.801" endtime="20200123 11:06:59.809"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:59.780" endtime="20200122 13:03:59.797"></status>
+<status status="PASS" starttime="20200123 11:06:59.810" endtime="20200123 11:06:59.841"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:59.780" endtime="20200122 13:03:59.798"></status>
+<status status="PASS" starttime="20200123 11:06:59.810" endtime="20200123 11:06:59.842"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:59.800" endtime="20200122 13:03:59.833"></status>
+<status status="PASS" starttime="20200123 11:06:59.843" endtime="20200123 11:06:59.861"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:59.799" endtime="20200122 13:03:59.834"></status>
+<status status="PASS" starttime="20200123 11:06:59.842" endtime="20200123 11:06:59.861"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -638,7 +813,7 @@
 <arg>${disscussionIcon}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:59.836" endtime="20200122 13:03:59.889"></status>
+<status status="PASS" starttime="20200123 11:06:59.862" endtime="20200123 11:06:59.894"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
@@ -646,26 +821,48 @@
 <arg>${disscussionIcon}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:03:59.890" endtime="20200122 13:03:59.949"></status>
+<status status="PASS" starttime="20200123 11:06:59.895" endtime="20200123 11:06:59.913"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${disscussionIcon}</arg>
 </arguments>
-<msg timestamp="20200122 13:03:59.954" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[4]/a/div/i'.</msg>
-<status status="PASS" starttime="20200122 13:03:59.950" endtime="20200122 13:04:00.167"></status>
+<msg timestamp="20200123 11:06:59.914" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[4]/a/div/i'.</msg>
+<status status="PASS" starttime="20200123 11:06:59.913" endtime="20200123 11:07:00.080"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:00.169" endtime="20200122 13:04:00.709"></status>
+<status status="PASS" starttime="20200123 11:07:00.081" endtime="20200123 11:07:00.787"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:00.168" endtime="20200122 13:04:00.710"></status>
+<status status="PASS" starttime="20200123 11:07:00.081" endtime="20200123 11:07:00.788"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:07:00.789" endtime="20200123 11:07:00.803"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:07:00.788" endtime="20200123 11:07:00.803"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:07:00.804" endtime="20200123 11:07:00.813"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:07:00.803" endtime="20200123 11:07:00.813"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -673,7 +870,7 @@
 <arg>${DiscussionBtn}</arg>
 <arg>timeout=60 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:00.710" endtime="20200122 13:04:00.743"></status>
+<status status="PASS" starttime="20200123 11:07:00.814" endtime="20200123 11:07:00.835"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
@@ -681,37 +878,48 @@
 <arg>${DiscussionBtn}</arg>
 <arg>timeout=60 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:00.744" endtime="20200122 13:04:00.775"></status>
+<status status="PASS" starttime="20200123 11:07:00.836" endtime="20200123 11:07:00.854"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:00.776" endtime="20200122 13:04:00.787"></status>
+<status status="PASS" starttime="20200123 11:07:00.855" endtime="20200123 11:07:00.862"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:00.775" endtime="20200122 13:04:00.787"></status>
+<status status="PASS" starttime="20200123 11:07:00.854" endtime="20200123 11:07:00.863"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:00.788" endtime="20200122 13:04:00.798"></status>
+<status status="PASS" starttime="20200123 11:07:00.863" endtime="20200123 11:07:00.872"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:00.787" endtime="20200122 13:04:00.799"></status>
+<status status="PASS" starttime="20200123 11:07:00.863" endtime="20200123 11:07:00.872"></status>
+</kw>
+<kw name="Loading" library="AllVeriables">
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<arguments>
+<arg>Loading</arg>
+<arg>timeout=30seconds</arg>
+</arguments>
+<status status="PASS" starttime="20200123 11:07:00.873" endtime="20200123 11:07:00.881"></status>
+</kw>
+<status status="PASS" starttime="20200123 11:07:00.872" endtime="20200123 11:07:00.881"></status>
 </kw>
 <kw name="Click Button" library="Selenium2Library">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>${DiscussionBtn}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:00.800" level="INFO">Clicking button 'xpath://*[@id="discussion-list"]/div[2]/div[3]/div/button'.</msg>
-<status status="PASS" starttime="20200122 13:04:00.800" endtime="20200122 13:04:00.962"></status>
+<msg timestamp="20200123 11:07:00.882" level="INFO">Clicking button 'xpath://*[@id="discussion-list"]/div[2]/div[3]/div/button'.</msg>
+<status status="PASS" starttime="20200123 11:07:00.881" endtime="20200123 11:07:00.952"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -719,7 +927,7 @@
 <arg>${DiscussionTitle}</arg>
 <arg>timeout=60 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:00.963" endtime="20200122 13:04:01.824"></status>
+<status status="PASS" starttime="20200123 11:07:00.952" endtime="20200123 11:07:01.469"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
@@ -727,59 +935,62 @@
 <arg>${DiscussionTitle}</arg>
 <arg>timeout=60 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:01.825" endtime="20200122 13:04:01.932"></status>
+<status status="PASS" starttime="20200123 11:07:01.469" endtime="20200123 11:07:01.505"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>${DiscussionTitle}</arg>
-<arg>title</arg>
+<arg>${DiscussionTitle}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:01.936" level="INFO">Typing text 'title' into text field 'name:title'.</msg>
-<status status="PASS" starttime="20200122 13:04:01.935" endtime="20200122 13:04:02.157"></status>
+<msg timestamp="20200123 11:07:01.507" level="INFO">Typing text 'name:title' into text field 'name:title'.</msg>
+<status status="PASS" starttime="20200123 11:07:01.506" endtime="20200123 11:07:01.741"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${DiscussionMsg}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:02.158" level="INFO">Clicking element 'name:message'.</msg>
-<status status="PASS" starttime="20200122 13:04:02.157" endtime="20200122 13:04:02.302"></status>
+<msg timestamp="20200123 11:07:01.744" level="INFO">Clicking element 'name:message'.</msg>
+<status status="PASS" starttime="20200123 11:07:01.742" endtime="20200123 11:07:01.877"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>${MsgEditer}</arg>
-<arg>text</arg>
+<arg>${DiscussionMsg}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:02.303" level="INFO">Typing text 'text' into text field 'xpath://*[@id="message-editor"]/div/div[2]/div[1]'.</msg>
-<status status="PASS" starttime="20200122 13:04:02.302" endtime="20200122 13:04:02.445"></status>
+<msg timestamp="20200123 11:07:01.878" level="INFO">Typing text 'name:message' into text field 'xpath://*[@id="message-editor"]/div/div[2]/div[1]'.</msg>
+<status status="PASS" starttime="20200123 11:07:01.878" endtime="20200123 11:07:02.093"></status>
 </kw>
 <kw name="Click Button" library="Selenium2Library">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>${CreatDisBtn}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:02.448" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/div[3]/div/div/div/div[2]/div/button[2]'.</msg>
-<status status="PASS" starttime="20200122 13:04:02.448" endtime="20200122 13:04:02.583"></status>
+<msg timestamp="20200123 11:07:02.095" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div/div[3]/div/div/div/div[2]/div/button[2]'.</msg>
+<status status="PASS" starttime="20200123 11:07:02.094" endtime="20200123 11:07:02.193"></status>
 </kw>
 <kw name="Go Back" library="Selenium2Library">
 <doc>Simulates the user clicking the back button on their browser.</doc>
-<status status="PASS" starttime="20200122 13:04:02.585" endtime="20200122 13:04:02.743"></status>
+<status status="PASS" starttime="20200123 11:07:02.194" endtime="20200123 11:07:02.308"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:59.696" endtime="20200122 13:04:02.743"></status>
+<status status="PASS" starttime="20200123 11:06:59.781" endtime="20200123 11:07:02.309"></status>
 </kw>
-<kw name="Forms" library="Form_Assign">
-<kw name="Loading" library="All Veriables">
+<status status="PASS" starttime="20200123 11:06:59.780" endtime="20200123 11:07:02.311" critical="yes"></status>
+</test>
+<test id="s1-s1-t7" name="Verifing the Forms Are Listed In Available Forms">
+<kw name="Verifing Forms" library="FormAssign">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:02.746" endtime="20200122 13:04:03.737"></status>
+<status status="PASS" starttime="20200123 11:07:02.315" endtime="20200123 11:07:03.281"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:02.745" endtime="20200122 13:04:03.738"></status>
+<status status="PASS" starttime="20200123 11:07:02.314" endtime="20200123 11:07:03.282"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -787,7 +998,7 @@
 <arg>${formSidebar}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:03.739" endtime="20200122 13:04:03.773"></status>
+<status status="PASS" starttime="20200123 11:07:03.283" endtime="20200123 11:07:03.345"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
@@ -795,290 +1006,299 @@
 <arg>${formSidebar}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:03.773" endtime="20200122 13:04:03.795"></status>
+<status status="PASS" starttime="20200123 11:07:03.346" endtime="20200123 11:07:03.375"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${formSidebar}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:03.796" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[5]/a/div[1]/i'.</msg>
-<status status="PASS" starttime="20200122 13:04:03.795" endtime="20200122 13:04:04.043"></status>
+<msg timestamp="20200123 11:07:03.376" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[5]/a/div[1]/i'.</msg>
+<status status="PASS" starttime="20200123 11:07:03.375" endtime="20200123 11:07:03.626"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:04.044" endtime="20200122 13:04:06.395"></status>
+<status status="PASS" starttime="20200123 11:07:03.628" endtime="20200123 11:07:05.590"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:04.043" endtime="20200122 13:04:06.397"></status>
+<status status="PASS" starttime="20200123 11:07:03.627" endtime="20200123 11:07:05.590"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${AvailableForm}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:06.399" level="INFO">Clicking element 'xpath://*[@daid="available-forms-tab"]'.</msg>
-<status status="PASS" starttime="20200122 13:04:06.398" endtime="20200122 13:04:06.541"></status>
+<msg timestamp="20200123 11:07:05.591" level="INFO">Clicking element 'xpath://*[@daid="available-forms-tab"]'.</msg>
+<status status="PASS" starttime="20200123 11:07:05.591" endtime="20200123 11:07:05.688"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${firstForm}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:06.542" endtime="20200122 13:04:06.617"></status>
+<status status="PASS" starttime="20200123 11:07:05.688" endtime="20200123 11:07:05.739"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
 <arg>${firstForm}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:06.618" endtime="20200122 13:04:06.662"></status>
+<status status="PASS" starttime="20200123 11:07:05.739" endtime="20200123 11:07:05.781"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${firstForm}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:06.664" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]/a'.</msg>
-<status status="PASS" starttime="20200122 13:04:06.663" endtime="20200122 13:04:06.947"></status>
+<msg timestamp="20200123 11:07:05.782" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]/a'.</msg>
+<status status="PASS" starttime="20200123 11:07:05.781" endtime="20200123 11:07:05.935"></status>
 </kw>
 <kw name="Go Back" library="Selenium2Library">
 <doc>Simulates the user clicking the back button on their browser.</doc>
-<status status="PASS" starttime="20200122 13:04:06.947" endtime="20200122 13:04:07.219"></status>
+<status status="PASS" starttime="20200123 11:07:05.936" endtime="20200123 11:07:06.088"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${AssignBtn}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:07.220" endtime="20200122 13:04:07.721"></status>
+<status status="PASS" starttime="20200123 11:07:06.089" endtime="20200123 11:07:06.580"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
 <arg>${AssignBtn}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:07.722" endtime="20200122 13:04:07.764"></status>
+<status status="PASS" starttime="20200123 11:07:06.581" endtime="20200123 11:07:06.611"></status>
 </kw>
 <kw name="Click Button" library="Selenium2Library">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>${AssignBtn}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:07.766" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[4]/button'.</msg>
-<status status="PASS" starttime="20200122 13:04:07.765" endtime="20200122 13:04:08.050"></status>
+<msg timestamp="20200123 11:07:06.613" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[4]/button'.</msg>
+<status status="PASS" starttime="20200123 11:07:06.612" endtime="20200123 11:07:06.844"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:08.053" endtime="20200122 13:04:08.888"></status>
+<status status="PASS" starttime="20200123 11:07:06.846" endtime="20200123 11:07:07.597"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:08.051" endtime="20200122 13:04:08.888"></status>
+<status status="PASS" starttime="20200123 11:07:06.845" endtime="20200123 11:07:07.599"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${TeamMemSectList}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:08.891" level="INFO">Clicking element 'xpath://*[@id="teamMember"]/div'.</msg>
-<status status="PASS" starttime="20200122 13:04:08.890" endtime="20200122 13:04:09.100"></status>
+<msg timestamp="20200123 11:07:07.602" level="INFO">Clicking element 'xpath://*[@id="teamMember"]/div'.</msg>
+<status status="PASS" starttime="20200123 11:07:07.601" endtime="20200123 11:07:07.753"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${ClickOnFirstTeam}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:09.101" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div/div/div[2]/form/div[2]/div/ul[1]/li/div[3]/span'.</msg>
-<status status="PASS" starttime="20200122 13:04:09.101" endtime="20200122 13:04:09.355"></status>
+<msg timestamp="20200123 11:07:07.756" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div/div/div[2]/form/div[2]/div/ul[1]/li/div[3]/span'.</msg>
+<status status="PASS" starttime="20200123 11:07:07.754" endtime="20200123 11:07:07.927"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${finalAssign}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:09.356" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div/div/div[3]/div[2]'.</msg>
-<status status="PASS" starttime="20200122 13:04:09.355" endtime="20200122 13:04:09.575"></status>
+<msg timestamp="20200123 11:07:07.933" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div/div/div[3]/div[2]'.</msg>
+<status status="PASS" starttime="20200123 11:07:07.929" endtime="20200123 11:07:08.062"></status>
 </kw>
 <kw name="Go Back" library="Selenium2Library">
 <doc>Simulates the user clicking the back button on their browser.</doc>
-<status status="PASS" starttime="20200122 13:04:09.576" endtime="20200122 13:04:09.786"></status>
+<status status="PASS" starttime="20200123 11:07:08.062" endtime="20200123 11:07:08.264"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:02.744" endtime="20200122 13:04:09.787"></status>
+<status status="PASS" starttime="20200123 11:07:02.314" endtime="20200123 11:07:08.264"></status>
 </kw>
-<kw name="Analytics" library="Analytics">
-<kw name="Loading" library="All Veriables">
+<status status="PASS" starttime="20200123 11:07:02.313" endtime="20200123 11:07:08.264" critical="yes"></status>
+</test>
+<test id="s1-s1-t8" name="Verifing the Analytics">
+<kw name="Checking Analytics" library="Analytics">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:09.789" endtime="20200122 13:04:09.812"></status>
+<status status="PASS" starttime="20200123 11:07:08.276" endtime="20200123 11:07:08.302"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:09.789" endtime="20200122 13:04:09.812"></status>
+<status status="PASS" starttime="20200123 11:07:08.273" endtime="20200123 11:07:08.303"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:09.816" endtime="20200122 13:04:09.838"></status>
+<status status="PASS" starttime="20200123 11:07:08.304" endtime="20200123 11:07:08.317"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:09.813" endtime="20200122 13:04:09.840"></status>
+<status status="PASS" starttime="20200123 11:07:08.304" endtime="20200123 11:07:08.318"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:09.842" endtime="20200122 13:04:09.860"></status>
+<status status="PASS" starttime="20200123 11:07:08.318" endtime="20200123 11:07:08.333"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:09.841" endtime="20200122 13:04:09.860"></status>
+<status status="PASS" starttime="20200123 11:07:08.318" endtime="20200123 11:07:08.333"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>10</arg>
 </arguments>
-<msg timestamp="20200122 13:04:19.863" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20200122 13:04:09.861" endtime="20200122 13:04:19.865"></status>
+<msg timestamp="20200123 11:07:18.334" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20200123 11:07:08.333" endtime="20200123 11:07:18.335"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Assign "2018-2019 Emergency Information for Transporters"</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:19.867" endtime="20200122 13:04:19.927"></status>
+<status status="PASS" starttime="20200123 11:07:18.338" endtime="20200123 11:07:18.394"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>xpath://*[@id="side-nav"]/ul/li[6]/a/div[1]/i</arg>
+<arg>${Anlytics Sidevar}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:19.927" endtime="20200122 13:04:19.972"></status>
+<status status="PASS" starttime="20200123 11:07:18.395" endtime="20200123 11:07:18.425"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
-<arg>xpath://*[@id="side-nav"]/ul/li[6]/a/div[1]/i</arg>
+<arg>${Anlytics Sidevar}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:19.972" endtime="20200122 13:04:20.012"></status>
+<status status="PASS" starttime="20200123 11:07:18.425" endtime="20200123 11:07:18.446"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>xpath://*[@id="side-nav"]/ul/li[6]/a/div[1]/i</arg>
+<arg>${Anlytics Sidevar}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:20.013" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[6]/a/div[1]/i'.</msg>
-<status status="PASS" starttime="20200122 13:04:20.013" endtime="20200122 13:04:20.198"></status>
+<msg timestamp="20200123 11:07:18.447" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[6]/a/div[1]/i'.</msg>
+<status status="PASS" starttime="20200123 11:07:18.447" endtime="20200123 11:07:18.559"></status>
 </kw>
 <kw name="Go Back" library="Selenium2Library">
 <doc>Simulates the user clicking the back button on their browser.</doc>
-<status status="PASS" starttime="20200122 13:04:20.198" endtime="20200122 13:04:20.408"></status>
+<status status="PASS" starttime="20200123 11:07:18.559" endtime="20200123 11:07:18.706"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:09.788" endtime="20200122 13:04:20.409"></status>
+<status status="PASS" starttime="20200123 11:07:08.267" endtime="20200123 11:07:18.706"></status>
 </kw>
-<kw name="Services" library="Services">
-<kw name="Loading" library="All Veriables">
+<status status="PASS" starttime="20200123 11:07:08.265" endtime="20200123 11:07:18.707" critical="yes"></status>
+</test>
+<test id="s1-s1-t9" name="Checking for the Services">
+<kw name="Checking Services" library="Services">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:20.411" endtime="20200122 13:04:20.435"></status>
+<status status="PASS" starttime="20200123 11:07:18.711" endtime="20200123 11:07:18.725"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:20.410" endtime="20200122 13:04:20.436"></status>
+<status status="PASS" starttime="20200123 11:07:18.710" endtime="20200123 11:07:18.726"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:20.438" endtime="20200122 13:04:20.453"></status>
+<status status="PASS" starttime="20200123 11:07:18.726" endtime="20200123 11:07:18.737"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:20.437" endtime="20200122 13:04:20.454"></status>
+<status status="PASS" starttime="20200123 11:07:18.726" endtime="20200123 11:07:18.739"></status>
 </kw>
-<kw name="Loading" library="All Veriables">
+<kw name="Loading" library="AllVeriables">
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 <arg>timeout=30seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:20.455" endtime="20200122 13:04:20.470"></status>
+<status status="PASS" starttime="20200123 11:07:18.740" endtime="20200123 11:07:18.751"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:20.454" endtime="20200122 13:04:20.470"></status>
+<status status="PASS" starttime="20200123 11:07:18.739" endtime="20200123 11:07:18.751"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>xpath://*[@id="side-nav"]/ul/li[7]/a/div[1]/span</arg>
+<arg>${Services Sidebar}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:20.471" endtime="20200122 13:04:20.508"></status>
+<status status="PASS" starttime="20200123 11:07:18.751" endtime="20200123 11:07:18.791"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
-<arg>xpath://*[@id="side-nav"]/ul/li[7]/a/div[1]/span</arg>
+<arg>${Services Sidebar}</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:20.508" endtime="20200122 13:04:20.543"></status>
+<status status="PASS" starttime="20200123 11:07:18.791" endtime="20200123 11:07:18.822"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>xpath://*[@id="side-nav"]/ul/li[7]/a/div[1]/span</arg>
+<arg>${Services Sidebar}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:20.547" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[7]/a/div[1]/span'.</msg>
-<status status="PASS" starttime="20200122 13:04:20.547" endtime="20200122 13:04:20.709"></status>
+<msg timestamp="20200123 11:07:18.824" level="INFO">Clicking element 'xpath://*[@id="side-nav"]/ul/li[7]/a/div[1]/span'.</msg>
+<status status="PASS" starttime="20200123 11:07:18.823" endtime="20200123 11:07:18.983"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:20.409" endtime="20200122 13:04:20.710"></status>
+<status status="PASS" starttime="20200123 11:07:18.709" endtime="20200123 11:07:18.983"></status>
 </kw>
+<status status="PASS" starttime="20200123 11:07:18.708" endtime="20200123 11:07:18.984" critical="yes"></status>
+</test>
+<test id="s1-s1-t10" name="Logout Success">
 <kw name="Logout" library="Logout">
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>10</arg>
 </arguments>
-<msg timestamp="20200122 13:04:30.715" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20200122 13:04:20.714" endtime="20200122 13:04:30.717"></status>
+<msg timestamp="20200123 11:07:28.993" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20200123 11:07:18.991" endtime="20200123 11:07:28.994"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:30.719" endtime="20200122 13:04:30.767"></status>
+<status status="PASS" starttime="20200123 11:07:28.995" endtime="20200123 11:07:29.035"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:30.769" endtime="20200122 13:04:30.835"></status>
+<status status="PASS" starttime="20200123 11:07:29.035" endtime="20200123 11:07:29.055"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Loading</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:30.838" endtime="20200122 13:04:30.853"></status>
+<status status="PASS" starttime="20200123 11:07:29.056" endtime="20200123 11:07:29.070"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is enabled.</doc>
@@ -1086,7 +1306,7 @@
 <arg>${HaderUserName}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:30.853" endtime="20200122 13:04:30.898"></status>
+<status status="PASS" starttime="20200123 11:07:29.070" endtime="20200123 11:07:29.118"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -1094,47 +1314,45 @@
 <arg>${HaderUserName}</arg>
 <arg>timeout=30 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200122 13:04:30.900" endtime="20200122 13:04:30.947"></status>
+<status status="PASS" starttime="20200123 11:07:29.118" endtime="20200123 11:07:29.136"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${HaderUserName}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:30.948" level="INFO">Clicking element 'xpath://*[@id="ecv-page-header"]/div[3]/div[1]/nav/ul/li/a/span/span/i'.</msg>
-<status status="PASS" starttime="20200122 13:04:30.948" endtime="20200122 13:04:31.058"></status>
+<msg timestamp="20200123 11:07:29.136" level="INFO">Clicking element 'xpath://*[@id="ecv-page-header"]/div[3]/div[1]/nav/ul/li/a/span/span/i'.</msg>
+<status status="PASS" starttime="20200123 11:07:29.136" endtime="20200123 11:07:29.196"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${Logout}</arg>
 </arguments>
-<msg timestamp="20200122 13:04:31.061" level="INFO">Clicking element 'xpath://*[@id="step4"]/li[7]/a/span'.</msg>
-<status status="PASS" starttime="20200122 13:04:31.059" endtime="20200122 13:04:31.238"></status>
+<msg timestamp="20200123 11:07:29.197" level="INFO">Clicking element 'xpath://*[@id="step4"]/li[7]/a/span'.</msg>
+<status status="PASS" starttime="20200123 11:07:29.197" endtime="20200123 11:07:29.304"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:04:20.712" endtime="20200122 13:04:31.239"></status>
+<status status="PASS" starttime="20200123 11:07:18.990" endtime="20200123 11:07:29.305"></status>
 </kw>
-<status status="PASS" starttime="20200122 13:03:36.706" endtime="20200122 13:04:31.240"></status>
-</kw>
-<status status="PASS" starttime="20200122 13:01:43.349" endtime="20200122 13:04:31.241" critical="yes"></status>
+<status status="PASS" starttime="20200123 11:07:18.986" endtime="20200123 11:07:29.305" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20200122 13:01:43.085" endtime="20200122 13:04:31.245"></status>
+<status status="FAIL" starttime="20200123 11:04:47.368" endtime="20200123 11:07:29.308"></status>
 </suite>
-<status status="PASS" starttime="20200122 13:01:43.043" endtime="20200122 13:04:31.249"></status>
+<status status="FAIL" starttime="20200123 11:04:47.339" endtime="20200123 11:07:29.316"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="8" fail="2">Critical Tests</stat>
+<stat pass="8" fail="2">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Test">Test</stat>
-<stat pass="1" fail="0" id="s1-s1" name="Main TestCase">Test.Main TestCase</stat>
+<stat pass="8" fail="2" id="s1" name="Test">Test</stat>
+<stat pass="8" fail="2" id="s1-s1" name="TestSuite">Test.TestSuite</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20200122 13:01:43.321" level="WARN">Collapsing consecutive whitespace during parsing is deprecated. Fix ' select team' in file '/home/jeavio37/eclipse-workspace/Test/Team_Selection.robot' on line 7.</msg>
+<msg timestamp="20200123 11:04:47.509" level="WARN">Collapsing consecutive whitespace during parsing is deprecated. Fix ' select team' in file '/home/jeavio37/eclipse-workspace/Test/TeamSelection.robot' on line 7.</msg>
 </errors>
 </robot>

@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Selenium2Library 
-Resource    All Veriables.robot   
+Resource   AllVeriables.robot   
 
 *** Keywords ***
 Logout

@@ -1,10 +1,11 @@
 *** Settings ***
 Library    Selenium2Library    
-Resource    All Veriables.robot
+Resource    AllVeriables.robot
+Resource    UserData.robot
 
 *** Keywords ***
 
-Discussions
+Start Discussions
     Loading
     Loading
     Loading
@@ -16,17 +17,19 @@ Discussions
     #Loading 
     #select team   
     Loading
+    Loading
+    Loading
     Wait Until Element Is Visible    ${DiscussionBtn}      timeout=60 seconds
     Wait Until Element Is Enabled    ${DiscussionBtn}      timeout=60 seconds
     Loading
     Loading  
-
+    Loading
     Click Button                     ${DiscussionBtn}  
     Wait Until Element Is Visible    ${DiscussionTitle}    timeout=60 seconds
     Wait Until Element Is Enabled    ${DiscussionTitle}    timeout=60 seconds
-    Input Text                       ${DiscussionTitle}    title  
+    Input Text                       ${DiscussionTitle}    ${DiscussionTitle}  
     Click Element                    ${DiscussionMsg}   
-    Input Text	                     ${MsgEditer}          text        
+    Input Text	                     ${MsgEditer}          ${DiscussionMsg}        
     
     Click Button                     ${CreatDisBtn}
     Go Back

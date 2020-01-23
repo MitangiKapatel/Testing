@@ -1,8 +1,8 @@
 *** Settings ***
 Library    Selenium2Library    
-Resource    All Veriables.robot
+Resource    AllVeriables.robot
 
 *** Keywords ***
-Open Browser To Login Page
+Open browser and redirect to login page
     Open Browser    ${LOGIN URL}    ${BROWSER}    options=add_argument("--disable-notifications")
     Maximize Browser Window

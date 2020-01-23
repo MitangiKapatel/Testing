@@ -3,11 +3,11 @@ Library    Selenium2Library
 Library    OperatingSystem
 Library    BuiltIn 
 Library    Collections
-Resource    All Veriables.robot
+Resource   AllVeriables.robot
 
 *** Keywords ***
 
-Forms
+Verifing Forms
     #Loading
     #select team
     Loading
