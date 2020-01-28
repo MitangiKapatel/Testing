@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="utils.librarylistener" type="library" format="ROBOT" generated="20200128 11:35:31">
+<version></version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>Documentation for library ``utils.librarylistener``.</doc>
+<kw name="Dispatch">
+<arguments>
+<arg>event_name</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>

@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Selenium2Library" type="library" format="ROBOT" generated="20200108 15:56:46">
-<version>3.0.0</version>
+<keywordspec name="SeleniumLibrary" type="library" format="ROBOT" generated="20200128 11:35:32">
+<version>4.1.0</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
-<doc>
----
-*NOTE:* Selenium2Library has been renamed to SeleniumLibrary since version 3.0.
-Nowadays Selenium2Library is just a thin wrapper to SeleniumLibrary that eases
-with transitioning to the new project. See
-[https://github.com/robotframework/SeleniumLibrary|SeleniumLibrary] and
-[https://github.com/robotframework/Selenium2Library|Selenium2Library]
-project pages for more information.
----
-Selenium2Library is a web testing library for Robot Framework.
+<doc>SeleniumLibrary is a web testing library for Robot Framework.
 
-This document explains how to use keywords provided by Selenium2Library.
+This document explains how to use keywords provided by SeleniumLibrary.
 For information about installation, support, and more, please visit the
-[https://github.com/robotframework/Selenium2Library|project pages].
+[https://github.com/robotframework/SeleniumLibrary|project pages].
 For more information about Robot Framework, see http://robotframework.org.
 
-Selenium2Library uses the Selenium WebDriver modules internally to
+SeleniumLibrary uses the Selenium WebDriver modules internally to
 control a web browser. See http://seleniumhq.org for more information
-about Selenium in general and Selenium2Library README.rst
-[https://github.com/robotframework/Selenium2Library#browser-drivers|Browser drivers chapter]
+about Selenium in general and SeleniumLibrary README.rst
+[https://github.com/robotframework/SeleniumLibrary#browser-drivers|Browser drivers chapter]
 for more details about WebDriver binary installation.
 
-%TOC%
+== Table of contents ==
+
+- `Locating elements`
+- `Browser and Window`
+- `Timeouts, waits, and delays`
+- `Run-on-failure functionality`
+- `Boolean arguments`
+- `EventFiringWebDriver`
+- `Thread support`
+- `Plugins`
+- `Importing`
+- `Shortcuts`
+- `Keywords`
 
 = Locating elements =
 
-All keywords in Selenium2Library that need to interact with an element
+All keywords in SeleniumLibrary that need to interact with an element
 on a web page take an argument typically named ``locator`` that specifies
 how to find the element. Most often the locator is given as a string
 using the locator syntax described below, but `using WebElements` is
@@ -37,7 +40,7 @@ possible too.
 
 == Locator syntax ==
 
-Selenium2Library supports finding elements based on different strategies
+SeleniumLibrary supports finding elements based on different strategies
 such as the element id, XPath expressions, or CSS selectors. The strategy
 can either be explicitly specified with a prefix or the strategy can be
 implicit.
@@ -122,11 +125,11 @@ Examples:
 
 *NOTE:*
 
-- The ``strategy:value`` syntax is only supported by Selenium2Library 3.0
+- The ``strategy:value`` syntax is only supported by SeleniumLibrary 3.0
   and newer.
 - Using the ``sizzle`` strategy or its alias ``jquery`` requires that
   the system under test contains the jQuery library.
-- Prior to Selenium2Library 3.0, table related keywords only supported
+- Prior to SeleniumLibrary 3.0, table related keywords only supported
   ``xpath``, ``css`` and ``sizzle/jquery`` strategies.
 
 === Implicit XPath strategy ===
@@ -140,7 +143,7 @@ Examples:
 | `Click Element` | //div[@id="foo"]//h1 |
 | `Click Element` | (//div)[2]           |
 
-The support for the ``(//`` prefix is new in Selenium2Library 3.0.
+The support for the ``(//`` prefix is new in SeleniumLibrary 3.0.
 
 == Using WebElements ==
 
@@ -180,7 +183,7 @@ See the `Add Location Strategy` keyword for more details.
 
 = Browser and Window =
 
-There is different conceptual meaning when Selenium2Library talks
+There is different conceptual meaning when SeleniumLibrary talks
 about windows or browsers. This chapter explains those differences.
 
 == Browser ==
@@ -188,7 +191,7 @@ about windows or browsers. This chapter explains those differences.
 When `Open Browser` or `Create WebDriver` keyword is called, it
 will create a new Selenium WebDriver instance by using the
 [https://www.seleniumhq.org/docs/03_webdriver.jsp|Selenium WebDriver]
-API. In Selenium2Library terms, a new browser is created. It is
+API. In SeleniumLibrary terms, a new browser is created. It is
 possible to start multiple independent browsers (Selenium Webdriver
 instances) at the same time, by calling `Open Browser` or
 `Create WebDriver` multiple times. These browsers are usually
@@ -200,7 +203,7 @@ creates a single window which is shown to the user.
 
 Windows are the part of a browser that loads the web site and presents
 it to the user. All content of the site is the content of the window.
-Windows are children of a browser. In Selenium2Library browser is a
+Windows are children of a browser. In SeleniumLibrary browser is a
 synonym for WebDriver instance. One browser may have multiple
 windows. Windows can appear as tabs, as separate windows or pop-ups with
 different position and size. Windows belonging to the same browser
@@ -256,7 +259,7 @@ timeouts, waits, and delays.
 
 == Timeout ==
 
-Selenium2Library contains various keywords that have an optional
+SeleniumLibrary contains various keywords that have an optional
 ``timeout`` argument that specifies how long these keywords should
 wait for certain events or actions. These keywords include, for example,
 ``Wait ...`` keywords and keywords related to alerts. Additionally
@@ -299,7 +302,7 @@ the time syntax see the
 
 = Run-on-failure functionality =
 
-Selenium2Library has a handy feature that it can automatically execute
+SeleniumLibrary has a handy feature that it can automatically execute
 a keyword if any of its own keywords fails. By default, it uses the
 `Capture Page Screenshot` keyword, but this can be changed either by
 using the `Register Keyword To Run On Failure` keyword or with the
@@ -335,36 +338,36 @@ False examples:
 | `Set Screenshot Directory` | ${RESULTS} | persist=${FALSE} | # Python False is false.        |
 | `Set Screenshot Directory` | ${RESULTS} | persist=${NONE}  | # Python None is false.         |
 
-Note that prior to Selenium2Library 3.0, all non-empty strings, including
+Note that prior to SeleniumLibrary 3.0, all non-empty strings, including
 ``false``, ``no`` and ``none``, were considered true. Starting from
-Selenium2Library 4.0, strings ``0`` and ``off`` are considered as false.
+SeleniumLibrary 4.0, strings ``0`` and ``off`` are considered as false.
 
 = EventFiringWebDriver =
 
-The Selenium2Library offers support for
+The SeleniumLibrary offers support for
 [https://seleniumhq.github.io/selenium/docs/api/py/webdriver_support/selenium.webdriver.support.event_firing_webdriver.html#module-selenium.webdriver.support.event_firing_webdriver|EventFiringWebDriver].
-See the Selenium and Selenium2Library
-[https://github.com/robotframework/Selenium2Library/blob/master/docs/extending/extending.rst#EventFiringWebDriver|EventFiringWebDriver support]
+See the Selenium and SeleniumLibrary
+[https://github.com/robotframework/SeleniumLibrary/blob/master/docs/extending/extending.rst#EventFiringWebDriver|EventFiringWebDriver support]
 documentation for further details.
 
-EventFiringWebDriver is new in Selenium2Library 4.0
+EventFiringWebDriver is new in SeleniumLibrary 4.0
 
 = Thread support =
 
-Selenium2Library is not thread-safe. This is mainly due because the underlying
+SeleniumLibrary is not thread-safe. This is mainly due because the underlying
 [https://github.com/SeleniumHQ/selenium/wiki/Frequently-Asked-Questions#q-is-webdriver-thread-safe|
 Selenium tool is not thread-safe] within one browser/driver instance.
 Because of the limitation in the Selenium side, the keywords or the
-API provided by the Selenium2Library is not thread-safe.
+API provided by the SeleniumLibrary is not thread-safe.
 
 = Plugins =
 
-Selenium2Library offers plugins as a way to modify and add library keywords and modify some of the internal
+SeleniumLibrary offers plugins as a way to modify and add library keywords and modify some of the internal
 functionality without creating a new library or hacking the source code. See
-[https://github.com/robotframework/Selenium2Library/blob/master/docs/extending/extending.rst#Plugins|plugin API]
+[https://github.com/robotframework/SeleniumLibrary/blob/master/docs/extending/extending.rst#Plugins|plugin API]
 documentation for further details.
 
-Plugin API is new Selenium2Library 4.0</doc>
+Plugin API is new SeleniumLibrary 4.0</doc>
 <init>
 <arguments>
 <arg>timeout=5.0</arg>
@@ -374,7 +377,7 @@ Plugin API is new Selenium2Library 4.0</doc>
 <arg>plugins=None</arg>
 <arg>event_firing_webdriver=None</arg>
 </arguments>
-<doc>Selenium2Library can be imported with several optional arguments.
+<doc>SeleniumLibrary can be imported with several optional arguments.
 
 - ``timeout``:
   Default value for `timeouts` used with ``Wait ...`` keywords.
@@ -386,7 +389,7 @@ Plugin API is new Selenium2Library 4.0</doc>
   Location where possible screenshots are created. If not given,
   the directory where the log file is written is used.
 - ``plugins``:
-  Allows extending the Selenium2Library with external Python classes.
+  Allows extending the SeleniumLibrary with external Python classes.
 - ``event_firing_webdriver``:
   Class for wrapping Selenium with
   [https://seleniumhq.github.io/selenium/docs/api/py/webdriver_support/selenium.webdriver.support.event_firing_webdriver.html#module-selenium.webdriver.support.event_firing_webdriver|EventFiringWebDriver]</doc>
@@ -415,7 +418,7 @@ Example:
 | `Add Cookie` | foo | bar | expiry=2027-09-28 16:21:35 | # Expiry as timestamp.     |
 | `Add Cookie` | foo | bar | expiry=1822137695          | # Expiry as epoch seconds. |
 
-Prior to Selenium2Library 3.0 setting expiry did not work.</doc>
+Prior to SeleniumLibrary 3.0 setting expiry did not work.</doc>
 <tags>
 </tags>
 </kw>
@@ -454,7 +457,7 @@ by default, but that behavior can be controlled by using the
 ``timeout`` specifies how long to wait for the alert to appear.
 If it is not given, the global default `timeout` is used instead.
 
-``action`` and ``timeout`` arguments are new in Selenium2Library 3.0.
+``action`` and ``timeout`` arguments are new in SeleniumLibrary 3.0.
 In earlier versions, the alert was always accepted and a timeout was
 hardcoded to one second.</doc>
 <tags>
@@ -477,7 +480,7 @@ By default, is not waited for the alert at all, but a custom time can
 be given if alert may be delayed. See the `time format` section
 for information about the syntax.
 
-New in Selenium2Library 3.0.</doc>
+New in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -518,7 +521,7 @@ Support for capturing the screenshot from an element has limited support
 among browser vendors. Please check the browser vendor driver documentation
 does the browser support capturing a screenshot from an element.
 
-New in Selenium2Library 3.3
+New in SeleniumLibrary 3.3
 
 Examples:
 | `Capture Element Screenshot` | id:image_id |                                |
@@ -539,7 +542,7 @@ Directory` keyword. If the directory is not configured, screenshots
 are saved to the same directory where Robot Framework's log file is
 written.
 
-Starting from Selenium2Library 1.8, if ``filename`` contains marker
+Starting from SeleniumLibrary 1.8, if ``filename`` contains marker
 ``{index}``, it will be automatically replaced with an unique running
 index, preventing files to be overwritten. Indices start from 1,
 and how they are represented can be customized using Python's
@@ -602,7 +605,7 @@ to the Selenium Grid node where the browser is running.
 Then Selenium will send the file path, from the nodes file
 system, to the browser.
 
-That ``file_path`` is not checked, is new in Selenium2Library 4.0.
+That ``file_path`` is not checked, is new in SeleniumLibrary 4.0.
 
 Example:
 | `Choose File` | my_upload_field | ${CURDIR}/trades.csv |</doc>
@@ -634,7 +637,7 @@ searched using ``id``, ``name``, and ``value``.
 See the `Click Element` keyword for details about the
 ``modifier`` argument.
 
-The ``modifier`` argument is new in Selenium2Library 3.3</doc>
+The ``modifier`` argument is new in SeleniumLibrary 3.3</doc>
 <tags>
 </tags>
 </kw>
@@ -670,8 +673,8 @@ Example:
 | Click Element | id:button | CTRL+ALT          | # Would click element with CTLR and ALT keys pressed down. |
 | Click Element | id:button | action_chain=True | # Clicks the button using an Selenium  ActionChains        |
 
-The ``modifier`` argument is new in Selenium2Library 3.2
-The ``action_chain`` argument is new in Selenium2Library 4.1</doc>
+The ``modifier`` argument is new in SeleniumLibrary 3.2
+The ``action_chain`` argument is new in SeleniumLibrary 4.1</doc>
 <tags>
 </tags>
 </kw>
@@ -705,7 +708,7 @@ using ``id``, ``name``, ``src`` and ``alt``.
 See the `Click Element` keyword for details about the
 ``modifier`` argument.
 
-The ``modifier`` argument is new in Selenium2Library 3.3</doc>
+The ``modifier`` argument is new in SeleniumLibrary 3.3</doc>
 <tags>
 </tags>
 </kw>
@@ -723,7 +726,7 @@ using ``id``, ``name``, ``href`` and the link text.
 See the `Click Element` keyword for details about the
 ``modifier`` argument.
 
-The ``modifier`` argument is new in Selenium2Library 3.3</doc>
+The ``modifier`` argument is new in SeleniumLibrary 3.3</doc>
 <tags>
 </tags>
 </kw>
@@ -763,7 +766,7 @@ all browsers are closed.</doc>
 See the `Locating elements` section for details about the locator
 syntax.
 
-New in Selenium2Library 3.3.0
+New in SeleniumLibrary 3.3.0
 
 Example:
 |`Cover Element` | css:div#container |</doc>
@@ -818,7 +821,7 @@ example.</doc>
 See `Page Should Contain` for an explanation about the ``loglevel``
 argument.
 
-Prior to Selenium2Library 3.0 this keyword was named
+Prior to SeleniumLibrary 3.0 this keyword was named
 `Current Frame Contains`.</doc>
 <tags>
 </tags>
@@ -913,7 +916,7 @@ syntax.
 Example:
 `Element Attribute Value Should Be` | css:img | href | value
 
-New in Selenium2Library 3.2.</doc>
+New in SeleniumLibrary 3.2.</doc>
 <tags>
 </tags>
 </kw>
@@ -954,7 +957,7 @@ syntax.</doc>
 See the `Locating elements` section for details about the locator
 syntax.
 
-New in Selenium2Library 3.0.</doc>
+New in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -994,9 +997,9 @@ The ``message`` argument can be used to override the default error
 message.
 
 The ``ignore_case`` argument can be set to True to compare case
-insensitive, default is False. New in Selenium2Library 3.1.
+insensitive, default is False. New in SeleniumLibrary 3.1.
 
-``ignore_case`` argument is new in Selenium2Library 3.1.
+``ignore_case`` argument is new in SeleniumLibrary 3.1.
 
 Use `Element Text Should Be` if you want to match the exact text,
 not a substring.</doc>
@@ -1033,7 +1036,7 @@ message.
 The ``ignore_case`` argument can be set to True to compare case
 insensitive, default is False.
 
-``ignore_case`` argument new in Selenium2Library 3.1.</doc>
+``ignore_case`` argument new in SeleniumLibrary 3.1.</doc>
 <tags>
 </tags>
 </kw>
@@ -1055,7 +1058,7 @@ message.
 The ``ignore_case`` argument can be set to True to compare case
 insensitive, default is False.
 
-``ignore_case`` argument is new in Selenium2Library 3.1.
+``ignore_case`` argument is new in SeleniumLibrary 3.1.
 
 Use `Element Should Contain` if a substring match is desired.</doc>
 <tags>
@@ -1079,7 +1082,7 @@ message.
 The ``ignore_case`` argument can be set to True to compare case
 insensitive, default is False.
 
-New in Selenium2Library 3.1.1</doc>
+New in SeleniumLibrary 3.1.1</doc>
 <tags>
 </tags>
 </kw>
@@ -1097,7 +1100,7 @@ function as the last argument.
 Scripts must complete within the script timeout or this keyword will
 fail. See the `Timeout` section for more information.
 
-Starting from Selenium2Library 3.2 it is possible to provide JavaScript
+Starting from SeleniumLibrary 3.2 it is possible to provide JavaScript
 [https://seleniumhq.github.io/selenium/docs/api/py/webdriver_remote/selenium.webdriver.remote.webdriver.html#selenium.webdriver.remote.webdriver.WebDriver.execute_async_script|
 arguments] as part of ``code`` argument. See `Execute Javascript` for
 more details.
@@ -1137,7 +1140,7 @@ to the document object of the current frame or window, e.g.
 This keyword returns whatever the executed JavaScript code returns.
 Return values are converted to the appropriate Python types.
 
-Starting from Selenium2Library 3.2 it is possible to provide JavaScript
+Starting from SeleniumLibrary 3.2 it is possible to provide JavaScript
 [https://seleniumhq.github.io/selenium/docs/api/py/webdriver_remote/selenium.webdriver.remote.webdriver.html#selenium.webdriver.remote.webdriver.WebDriver.execute_script|
 arguments] as part of ``code`` argument. The JavaScript code and
 arguments must be separated with `JAVASCRIPT` and `ARGUMENTS` markers
@@ -1199,7 +1202,7 @@ Example:
 
 See `Switch Browser` for more information and examples.
 
-New in Selenium2Library 4.0</doc>
+New in SeleniumLibrary 4.0</doc>
 <tags>
 </tags>
 </kw>
@@ -1217,7 +1220,7 @@ Example:
 
 See `Switch Browser` for more information and examples.
 
-New in Selenium2Library 4.0</doc>
+New in SeleniumLibrary 4.0</doc>
 <tags>
 </tags>
 </kw>
@@ -1253,7 +1256,7 @@ the cookie contains other attributes than is defined in the
 [https://w3c.github.io/webdriver/#cookies|WebDriver specification].
 These other attributes are available in an ``extra`` attribute in the cookie
 object and it contains a dictionary of the other attributes. The ``extra``
-attribute is new in Selenium2Library 4.0.
+attribute is new in SeleniumLibrary 4.0.
 
 Example:
 | `Add Cookie`      | foo             | bar |
@@ -1262,7 +1265,7 @@ Example:
 | `Should Be Equal` | ${cookie.value} | foo |
 | `Should Be True`  | ${cookie.expiry.year} &gt; 2017 |
 
-New in Selenium2Library 3.0.</doc>
+New in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -1282,7 +1285,7 @@ sending HTTP requests. The dictionary format is helpful when
 the result can be passed to requests library's Create Session
 keyword's optional cookies parameter.
 
-The `` as_dict`` argument is new in Selenium2Library 3.3</doc>
+The `` as_dict`` argument is new in SeleniumLibrary 3.3</doc>
 <tags>
 </tags>
 </kw>
@@ -1300,7 +1303,7 @@ Example:
 | ${id}= | `Get Element Attribute` | css:h1 | id |
 
 Passing attribute name as part of the ``locator`` was removed
-in Selenium2Library 3.2. The explicit ``attribute`` argument
+in SeleniumLibrary 3.2. The explicit ``attribute`` argument
 should be used instead.</doc>
 <tags>
 </tags>
@@ -1319,7 +1322,7 @@ Example:
 | ${count} =       | `Get Element Count` | name:div_name  |
 | `Should Be True` | ${count} &gt; 2        |                |
 
-New in Selenium2Library 3.0.</doc>
+New in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -1373,7 +1376,7 @@ Example:
 | ${labels} = | `Get List Items` | mylist              |             |
 | ${values} = | `Get List Items` | css:#example select | values=True |
 
-Support to return values is new in Selenium2Library 3.0.</doc>
+Support to return values is new in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -1425,7 +1428,7 @@ syntax.</doc>
 </arguments>
 <doc>Returns labels of selected options from selection list ``locator``.
 
-Starting from Selenium2Library 3.0, returns an empty list if there
+Starting from SeleniumLibrary 3.0, returns an empty list if there
 are no selections. In earlier versions, this caused an error.
 
 See the `Locating elements` section for details about the locator
@@ -1453,7 +1456,7 @@ syntax.</doc>
 </arguments>
 <doc>Returns values of selected options from selection list ``locator``.
 
-Starting from Selenium2Library 3.0, returns an empty list if there
+Starting from SeleniumLibrary 3.0, returns an empty list if there
 are no selections. In earlier versions, this caused an error.
 
 See the `Locating elements` section for details about the locator
@@ -1499,7 +1502,7 @@ See the `Timeout` section above for more information.</doc>
 </arguments>
 <doc>Returns the currently active browser session id.
 
-New in Selenium2Library 3.2</doc>
+New in SeleniumLibrary 3.2</doc>
 <tags>
 </tags>
 </kw>
@@ -1601,7 +1604,7 @@ syntax.</doc>
 See the `Locating elements` section for details about the locator
 syntax.
 
-Starting from Selenium2Library 3.0, the keyword returns an empty
+Starting from SeleniumLibrary 3.0, the keyword returns an empty
 list if there are no matching elements. In previous releases, the
 keyword failed in this case.</doc>
 <tags>
@@ -1617,7 +1620,7 @@ Can be used as a list of windows to exclude with `Select Window`.
 
 How to select the ``browser`` scope of this keyword, see `Get Locations`.
 
-Prior to Selenium2Library 3.0, this keyword was named `List Windows`.</doc>
+Prior to SeleniumLibrary 3.0, this keyword was named `List Windows`.</doc>
 <tags>
 </tags>
 </kw>
@@ -1665,7 +1668,7 @@ See also `Set Window Size`.
 If ``inner`` parameter is set to True, keyword returns
 HTML DOM window.innerWidth and window.innerHeight properties.
 See `Boolean arguments` for more details on how to set boolean
-arguments. The ``inner`` is new in Selenium2Library 4.0.
+arguments. The ``inner`` is new in SeleniumLibrary 4.0.
 
 Example:
 | ${width} | ${height}= | `Get Window Size` |      |
@@ -1725,7 +1728,7 @@ Examples:
 | ${message} = | Handle Alert   |       | # Accept alert and get its message.     |
 | ${message} = | Handle Alert   | LEAVE | # Leave alert open and get its message. |
 
-New in Selenium2Library 3.0.</doc>
+New in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -1751,13 +1754,13 @@ that is using variables like
 
 | Input Password | password_field | ${PASSWORD} |
 
-Notice also that Selenium2Library logs all the communication with
+Notice also that SeleniumLibrary logs all the communication with
 browser drivers using the DEBUG level, and the actual password can
 be seen there. Additionally, Robot Framework logs all arguments using
 the TRACE level. Tests must thus not be executed using level below
 INFO if the password should not be logged in any format.
 
-The `clear` argument is new in Selenium2Library 4.0</doc>
+The `clear` argument is new in SeleniumLibrary 4.0</doc>
 <tags>
 </tags>
 </kw>
@@ -1786,7 +1789,7 @@ syntax. See the `Boolean arguments` section how Boolean values are
 handled.
 
 Disabling the file upload the Selenium Grid node and the `clear`
-argument are new in Selenium2Library 4.0</doc>
+argument are new in SeleniumLibrary 4.0</doc>
 <tags>
 </tags>
 </kw>
@@ -1804,7 +1807,7 @@ by using the ``action`` argument same way as with `Handle Alert`.
 ``timeout`` specifies how long to wait for the alert to appear.
 If it is not given, the global default `timeout` is used instead.
 
-New in Selenium2Library 3.0.</doc>
+New in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -1816,7 +1819,7 @@ New in Selenium2Library 3.0.</doc>
 <doc>Verifies selection list ``locator`` has ``expected`` options selected.
 
 It is possible to give expected options both as visible labels and
-as values. Starting from Selenium2Library 3.0, mixing labels and
+as values. Starting from SeleniumLibrary 3.0, mixing labels and
 values is not possible. Order of the selected options is not
 validated.
 
@@ -1856,7 +1859,7 @@ The ``url`` argument contains the exact url that should exist in browser.
 The ``message`` argument can be used to override the default error
 message.
 
-``message`` argument is new in Selenium2Library 3.2.0.</doc>
+``message`` argument is new in SeleniumLibrary 3.2.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -1872,7 +1875,7 @@ The ``expected`` argument contains the expected value in url.
 The ``message`` argument can be used to override the default error
 message.
 
-``message`` argument is new in Selenium2Library 3.2.0.</doc>
+``message`` argument is new in SeleniumLibrary 3.2.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -1883,7 +1886,7 @@ message.
 <arg>message=None</arg>
 <arg>loglevel=TRACE</arg>
 </arguments>
-<doc>*DEPRECATED in Selenium2Library 4.0.*, use `Page Should Contain Element` with ``limit`` argument instead.</doc>
+<doc>*DEPRECATED in SeleniumLibrary 4.0.*, use `Page Should Contain Element` with ``limit`` argument instead.</doc>
 <tags>
 </tags>
 </kw>
@@ -2027,9 +2030,9 @@ are case-insensitive and some browsers have multiple supported names.
 
 To be able to actually use one of these browsers, you need to have
 a matching Selenium browser driver available. See the
-[https://github.com/robotframework/Selenium2Library#browser-drivers|
+[https://github.com/robotframework/SeleniumLibrary#browser-drivers|
 project documentation] for more details. Headless Firefox and
-Headless Chrome are new additions in Selenium2Library 3.1.0
+Headless Chrome are new additions in SeleniumLibrary 3.1.0
 and require Selenium 3.8.0 or newer.
 
 After opening the browser, it is possible to use optional 
@@ -2062,7 +2065,7 @@ enabled.
 
 Optional ``ff_profile_dir`` is the path to the Firefox profile
 directory if you wish to overwrite the default profile Selenium
-uses. Notice that prior to Selenium2Library 3.0, the library
+uses. Notice that prior to SeleniumLibrary 3.0, the library
 contained its own profile that was used by default. The
 ``ff_profile_dir`` can also be an instance of the
 [https://seleniumhq.github.io/selenium/docs/api/py/webdriver_firefox/selenium.webdriver.firefox.firefox_profile.html|selenium.webdriver.FirefoxProfile]
@@ -2079,14 +2082,14 @@ allows defining the following
 and for Firefox these
 [https://seleniumhq.github.io/selenium/docs/api/py/webdriver_firefox/selenium.webdriver.firefox.options.html?highlight=firefox#selenium.webdriver.firefox.options.Options|methods and attributes]
 are available. Please note that not all browsers, supported by the
-Selenium2Library, have Selenium options available. Therefore please
+SeleniumLibrary, have Selenium options available. Therefore please
 consult the Selenium documentation which browsers do support
 the Selenium options. If ``browser`` argument is `android` then
 [https://seleniumhq.github.io/selenium/docs/api/py/webdriver_chrome/selenium.webdriver.chrome.options.html#selenium.webdriver.chrome.options.Options|Chrome options]
 is used. Selenium options are also supported, when ``remote_url``
 argument is used.
 
-The Selenium2Library ``options`` argument accepts Selenium
+The SeleniumLibrary ``options`` argument accepts Selenium
 options in two different formats: as a string and as Python object
 which is an instance of the Selenium options class.
 
@@ -2126,7 +2129,7 @@ spaces inside of quotes are not removed.
 
 As last format, ``options`` argument also supports receiving
 the Selenium options as Python class instance. In this case, the
-instance is used as-is and the Selenium2Library will not convert
+instance is used as-is and the SeleniumLibrary will not convert
 the instance to other formats.
 For example, if the following code return value is saved to
 `${options}` variable in the Robot Framework data:
@@ -2189,16 +2192,16 @@ to use `Create Webdriver` to customize browser initialization even
 more.
 
 Applying ``desired_capabilities`` argument also for local browser is
-new in Selenium2Library 3.1.
+new in SeleniumLibrary 3.1.
 
 Using ``alias`` to decide, is the new browser opened is new
-in Selenium2Library 4.0. The ``options`` and ``service_log_path``
-are new in Selenium2Library 4.0. Support for ``ff_profile_dir``
+in SeleniumLibrary 4.0. The ``options`` and ``service_log_path``
+are new in SeleniumLibrary 4.0. Support for ``ff_profile_dir``
 accepting an instance of the `selenium.webdriver.FirefoxProfile`
 and support defining FirefoxProfile with methods and
-attributes are new in Selenium2Library 4.0.
+attributes are new in SeleniumLibrary 4.0.
 
-Making ``url`` optional is new in Selenium2Library 4.1.</doc>
+Making ``url`` optional is new in SeleniumLibrary 4.1.</doc>
 <tags>
 </tags>
 </kw>
@@ -2287,7 +2290,7 @@ Examples assumes that locator matches to two elements.
 | `Page Should Contain Element` | div_name | limit=none | # None is considered one or more. |
 | `Page Should Contain Element` | div_name |            | # Same as above.                  |
 
-The ``limit`` argument is new in Selenium2Library 3.0.</doc>
+The ``limit`` argument is new in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -2523,7 +2526,7 @@ syntax.</doc>
 <arg>locator</arg>
 <arg>key</arg>
 </arguments>
-<doc>*DEPRECATED in Selenium2Library 4.0.* use `Press Keys` instead.</doc>
+<doc>*DEPRECATED in SeleniumLibrary 4.0.* use `Press Keys` instead.</doc>
 <tags>
 </tags>
 </kw>
@@ -2566,7 +2569,7 @@ Key as a string, then each character must be separated with
 and ESC is alias for
 [https://seleniumhq.github.io/selenium/docs/api/py/webdriver/selenium.webdriver.common.keys.html#selenium.webdriver.common.keys.Keys.ESCAPE|Selenium ESCAPE]
 
-New in Selenium2Library 3.3
+New in SeleniumLibrary 3.3
 
 Examples:
 | `Press Keys` | text_field | AAAAA          |            | # Sends string "AAAAA" to element.                                                |
@@ -2606,10 +2609,10 @@ Examples:
 <arguments>
 <arg>keyword</arg>
 </arguments>
-<doc>Sets the keyword to execute, when a Selenium2Library keyword fails.
+<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.
 
 ``keyword`` is the name of a keyword that will be executed if a
-Selenium2Library keyword fails. It is possible to use any available
+SeleniumLibrary keyword fails. It is possible to use any available
 keyword, including user keywords or keywords from other libraries,
 but the keyword must not take any arguments.
 
@@ -2632,7 +2635,7 @@ Example:
 | ${previous kw}= | `Register Keyword To Run On Failure`  | NONE |
 | `Register Keyword To Run On Failure`  | ${previous kw} |
 
-Changes in Selenium2Library 3.0:
+Changes in SeleniumLibrary 3.0:
 - Possible to use string ``NONE`` or Python ``None`` to disable the
   functionality.
 - Return Python ``None`` when the functionality was disabled earlier.
@@ -2668,7 +2671,7 @@ custom strategies.</doc>
 See the `Locating elements` section for details about the locator
 syntax.
 
-New in Selenium2Library 3.2.0</doc>
+New in SeleniumLibrary 3.2.0</doc>
 <tags>
 </tags>
 </kw>
@@ -2792,7 +2795,7 @@ Examples:
 <arg>locator=MAIN</arg>
 <arg>timeout=None</arg>
 </arguments>
-<doc>DEPRECATED in Selenium2Library 4.0. , use `Switch Window` instead.</doc>
+<doc>DEPRECATED in SeleniumLibrary 4.0. , use `Switch Window` instead.</doc>
 <tags>
 </tags>
 </kw>
@@ -2816,7 +2819,7 @@ browser.</doc>
 See the `Locating elements` section for details about the locator
 syntax.
 
-Prior to Selenium2Library 3.0 this keyword was named `Focus`.</doc>
+Prior to SeleniumLibrary 3.0 this keyword was named `Focus`.</doc>
 <tags>
 </tags>
 </kw>
@@ -2836,8 +2839,8 @@ log file is written.
 The previous value is returned and can be used to restore
 the original value later if needed.
 
-Returning the previous value is new in Selenium2Library 3.0.
-The persist argument was removed in Selenium2Library 3.2.</doc>
+Returning the previous value is new in SeleniumLibrary 3.0.
+The persist argument was removed in SeleniumLibrary 3.2.</doc>
 <tags>
 </tags>
 </kw>
@@ -2943,7 +2946,7 @@ window width and height to have the desired HTML DOM _window.innerWidth_
 and _window.innerHeight_. See `Boolean arguments` for more details on how to set boolean
 arguments.
 
-The ``inner`` argument is new since Selenium2Library 4.0.
+The ``inner`` argument is new since SeleniumLibrary 4.0.
 
 This ``inner`` argument does not support Frames. If a frame is selected,
 switch to default before running this.
@@ -2967,7 +2970,7 @@ needs to be explicitly invoked.
 See the `Locating elements` section for details about the locator
 syntax.
 
-Prior to Selenium2Library 3.0 this keyword was named `Simulate`.</doc>
+Prior to SeleniumLibrary 3.0 this keyword was named `Simulate`.</doc>
 <tags>
 </tags>
 </kw>
@@ -3060,7 +3063,7 @@ similarly as when `locating elements` on pages.
   opens a new window.
 
 The ``timeout`` is used to specify how long keyword will poll to select
-the new window. The ``timeout`` is new in Selenium2Library 3.2.
+the new window. The ``timeout`` is new in SeleniumLibrary 3.2.
 
 Example:
 | `Click Link`      | popup1      |      | # Open new window |
@@ -3086,14 +3089,14 @@ a specific browser when switching to a window. See `Switch Browser`
 
 *NOTE:*
 
-- The ``strategy:value`` syntax is only supported by Selenium2Library
+- The ``strategy:value`` syntax is only supported by SeleniumLibrary
   3.0 and newer.
-- Prior to Selenium2Library 3.0 matching windows by name, title
+- Prior to SeleniumLibrary 3.0 matching windows by name, title
   and URL was case-insensitive.
 - Earlier versions supported aliases ``None``, ``null`` and the
   empty string for selecting the main window, and alias ``self``
   for selecting the current window. Support for these aliases was
-  removed in Selenium2Library 3.2.</doc>
+  removed in SeleniumLibrary 3.2.</doc>
 <tags>
 </tags>
 </kw>
@@ -3286,7 +3289,7 @@ syntax.</doc>
 The ``message`` argument can be used to override the default error
 message.
 
-``message`` argument is new in Selenium2Library 3.1.</doc>
+``message`` argument is new in SeleniumLibrary 3.1.</doc>
 <tags>
 </tags>
 </kw>
@@ -3299,7 +3302,7 @@ message.
 See the `Locating elements` section for details about the locator
 syntax.
 
-New in Selenium2Library 3.0.</doc>
+New in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -3447,7 +3450,7 @@ about the locator syntax.
 ``error`` can be used to override the default error message.
 
 Considering read-only elements to be disabled is a new feature
-in Selenium2Library 3.0.</doc>
+in SeleniumLibrary 3.0.</doc>
 <tags>
 </tags>
 </kw>
@@ -3502,7 +3505,7 @@ and their default value.
 The ``message`` argument can be used to override the default error
 message.
 
-New in Selenium2Library 4.0</doc>
+New in SeleniumLibrary 4.0</doc>
 <tags>
 </tags>
 </kw>
@@ -3523,7 +3526,7 @@ and their default value.
 The ``message`` argument can be used to override the default error
 message.
 
-New in Selenium2Library 4.0</doc>
+New in SeleniumLibrary 4.0</doc>
 <tags>
 </tags>
 </kw>
