@@ -15,6 +15,8 @@ Verifing Forms
     Wait Until Element Is Enabled    ${formSidebar}    timeout=30 seconds    
     Click Element                    ${formSidebar}
     Loading
+    Wait Until Element Is Visible    ${AvailableForm}  
+    Wait Until Element Is Enabled    ${AvailableForm}    
     Click Element                    ${AvailableForm}   
     Wait Until Element Is Visible    ${firstForm}
     Wait Until Element Is Enabled    ${firstForm}   
@@ -24,6 +26,9 @@ Verifing Forms
     Wait Until Element Is Enabled    ${AssignBtn}
     Click Button                     ${AssignBtn}
     Loading
+    Loading
+    Loading
+    Wait Until Element Is Enabled    ${TeamMemSectList}    
     Click Element                    ${TeamMemSectList}
     Click Element    	             ${ClickOnFirstTeam}
     Click Element                    ${finalAssign}                   

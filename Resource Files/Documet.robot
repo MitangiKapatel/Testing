@@ -10,15 +10,13 @@ checking for the document
     Loading
     Loading
     Loading
-    sleep   5
-    Wait Until Element Is Visible    ${Document Sidebar}    timeout=30 seconds
-    Wait Until Element Is Enabled    ${Document Sidebar}    timeout=30 seconds    
+    Wait Until Element Is Visible    ${Document Sidebar}    timeout=40 seconds
+    Wait Until Element Is Enabled    ${Document Sidebar}    timeout=40 seconds    
     Click Element                    ${Document Sidebar} 
     Loading 
     Loading 
-    Wait Until Element Is Visible    ${FolderOption}        timeout=30 seconds
-    Wait Until Element Is Enabled    ${FolderOption}        timeout=30 seconds
-    sleep  10
+    Wait Until Element Is Visible    ${FolderOption}        timeout=40 seconds
+    Wait Until Element Is Enabled    ${FolderOption}        timeout=40 seconds
     Click Element                    ${FolderOption}    
     #Select From List By Index    class:menu-options    1
     Wait Until Element Is Visible    ${SelectOpen}      timeout=20 seconds
@@ -28,7 +26,6 @@ checking for the document
     Loading
     Loading
     Loading
-    sleep  10
     Wait Until Element Is Visible    ${Upload Btn}     timeout=50 seconds
     Wait Until Element Is Enabled    ${Upload Btn}     timeout=50 seconds 
    

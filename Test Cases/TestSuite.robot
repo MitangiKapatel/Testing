@@ -12,14 +12,15 @@ Resource    ../Resource Files/Discussion.robot
 Resource    ../Resource Files/Analytics.robot
 Resource    ../Resource Files/Services.robot
 Resource    ../Resource Files/Logout.robot
+       
 #Suite Teardown    Close All Browsers
 Default Tags    sanity
 
 *** Test Cases ***
 Success Login
     [Tags]  smoke
-    login with valid credential
-    
+    Open browser and redirect to login page
+    login 
 User Loged in Or Not
     [Tags]  example
     Goto homepage and check for the valid Username 
@@ -54,10 +55,8 @@ Logout Success
      
 
 
-*** Keywords ***       
-login with valid credential
-    Open browser and redirect to login page
-    login 
+
+     
     
 
      

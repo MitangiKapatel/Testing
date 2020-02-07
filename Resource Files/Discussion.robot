@@ -23,9 +23,8 @@ Start Discussions
     Loading
     Loading  
     Loading
-    Loading
-    sleep   10   
-    Wait Until Page Contains Element  ${DiscussionBtn}     timeout=30 seconds
+    Loading  
+    Wait Until Page Contains Element  ${DiscussionBtn}     timeout=60 seconds
     Wait Until Element Is Visible    ${DiscussionBtn}      timeout=60 seconds
     Wait Until Element Is Enabled    ${DiscussionBtn}      timeout=60 seconds
  

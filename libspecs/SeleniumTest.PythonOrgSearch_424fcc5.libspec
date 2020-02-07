@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="SeleniumTest.PythonOrgSearch" type="library" format="ROBOT" generated="20200207 11:39:26">
+<version></version>
+<scope>test case</scope>
+<namedargs>yes</namedargs>
+<doc>Documentation for library ``SeleniumTest.PythonOrgSearch``.</doc>
+<init>
+<arguments>
+<arg>methodName=runTest</arg>
+</arguments>
+<doc>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</doc>
+<tags>
+</tags>
+</init>
+<kw name="Add Class Cleanup">
+<arguments>
+<arg>function</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Same as addCleanup, except the cleanup items are called even if
+setUpClass fails (unlike tearDownClass).</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Add Cleanup">
+<arguments>
+<arg>function</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Add a function, with arguments, to be called when the test is
+completed. Functions added are called on a LIFO basis and are
+called after tearDown on test failure or success.
+
+Cleanup items are called even if setUp fails (unlike tearDown).</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Add Type Equality Func">
+<arguments>
+<arg>typeobj</arg>
+<arg>function</arg>
+</arguments>
+<doc>Add a type specific assertEqual style function to compare a type.
+
+This method is for use by TestCase subclasses that need to register
+their own type equality functions to provide nicer error messages.
+
+Args:
+    typeobj: The data type to call this function on when both values
+            are of the same type in assertEqual().
+    function: The callable taking two arguments and an optional
+            msg= argument that raises self.failureException with a
+            useful error message when the two arguments are not equal.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Almost Equal">
+<arguments>
+<arg>first</arg>
+<arg>second</arg>
+<arg>places=None</arg>
+<arg>msg=None</arg>
+<arg>delta=None</arg>
+</arguments>
+<doc>Fail if the two objects are unequal as determined by their
+difference rounded to the given number of decimal places
+(default 7) and comparing to zero, or by comparing that the
+difference between the two objects is more than the given
+delta.
+
+Note that decimal places (from zero) are usually not the same
+as significant digits (measured from the most significant digit).
+
+If the two objects compare equal then they will automatically
+compare almost equal.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Almost Equals">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Count Equal">
+<arguments>
+<arg>first</arg>
+<arg>second</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Asserts that two iterables have the same elements, the same number of
+times, without regard to order.
+
+    self.assertEqual(Counter(list(first)),
+                     Counter(list(second)))
+
+ Example:
+    - [0, 1, 1] and [1, 0, 1] compare equal.
+    - [0, 0, 1] and [0, 1] compare unequal.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Dict Contains Subset">
+<arguments>
+<arg>subset</arg>
+<arg>dictionary</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Checks whether dictionary is a superset of subset.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Dict Equal">
+<arguments>
+<arg>d1</arg>
+<arg>d2</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Equal">
+<arguments>
+<arg>first</arg>
+<arg>second</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Fail if the two objects are unequal as determined by the '=='
+operator.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Equals">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert False">
+<arguments>
+<arg>expr</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Check that the expression is false.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Greater">
+<arguments>
+<arg>a</arg>
+<arg>b</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a &gt; b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Greater Equal">
+<arguments>
+<arg>a</arg>
+<arg>b</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a &gt;= b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert In">
+<arguments>
+<arg>member</arg>
+<arg>container</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a in b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Is">
+<arguments>
+<arg>expr1</arg>
+<arg>expr2</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a is b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Is Instance">
+<arguments>
+<arg>obj</arg>
+<arg>cls</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Same as self.assertTrue(isinstance(obj, cls)), with a nicer
+default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Is None">
+<arguments>
+<arg>obj</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Same as self.assertTrue(obj is None), with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Is Not">
+<arguments>
+<arg>expr1</arg>
+<arg>expr2</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a is not b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Is Not None">
+<arguments>
+<arg>obj</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Included for symmetry with assertIsNone.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Less">
+<arguments>
+<arg>a</arg>
+<arg>b</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a &lt; b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Less Equal">
+<arguments>
+<arg>a</arg>
+<arg>b</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a &lt;= b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert List Equal">
+<arguments>
+<arg>list1</arg>
+<arg>list2</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>A list-specific equality assertion.
+
+Args:
+    list1: The first list to compare.
+    list2: The second list to compare.
+    msg: Optional message to use on failure instead of a list of
+            differences.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Logs">
+<arguments>
+<arg>logger=None</arg>
+<arg>level=None</arg>
+</arguments>
+<doc>Fail unless a log message of level *level* or higher is emitted
+on *logger_name* or its children.  If omitted, *level* defaults to
+INFO and *logger* defaults to the root logger.
+
+This method must be used as a context manager, and will yield
+a recording object with two attributes: `output` and `records`.
+At the end of the context manager, the `output` attribute will
+be a list of the matching formatted log messages and the
+`records` attribute will be a list of the corresponding LogRecord
+objects.
+
+Example::
+
+    with self.assertLogs('foo', level='INFO') as cm:
+        logging.getLogger('foo').info('first message')
+        logging.getLogger('foo.bar').error('second message')
+    self.assertEqual(cm.output, ['INFO:foo:first message',
+                                 'ERROR:foo.bar:second message'])</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Multi Line Equal">
+<arguments>
+<arg>first</arg>
+<arg>second</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Assert that two multi-line strings are equal.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not Almost Equal">
+<arguments>
+<arg>first</arg>
+<arg>second</arg>
+<arg>places=None</arg>
+<arg>msg=None</arg>
+<arg>delta=None</arg>
+</arguments>
+<doc>Fail if the two objects are equal as determined by their
+difference rounded to the given number of decimal places
+(default 7) and comparing to zero, or by comparing that the
+difference between the two objects is less than the given delta.
+
+Note that decimal places (from zero) are usually not the same
+as significant digits (measured from the most significant digit).
+
+Objects that are equal automatically fail.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not Almost Equals">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not Equal">
+<arguments>
+<arg>first</arg>
+<arg>second</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Fail if the two objects are equal as determined by the '!='
+operator.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not Equals">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not In">
+<arguments>
+<arg>member</arg>
+<arg>container</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Just like self.assertTrue(a not in b), but with a nicer default message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not Is Instance">
+<arguments>
+<arg>obj</arg>
+<arg>cls</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Included for symmetry with assertIsInstance.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not Regex">
+<arguments>
+<arg>text</arg>
+<arg>unexpected_regex</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Fail the test if the text matches the regular expression.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Not Regexp Matches">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Raises">
+<arguments>
+<arg>expected_exception</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Fail unless an exception of class expected_exception is raised
+by the callable when invoked with specified positional and
+keyword arguments. If a different type of exception is
+raised, it will not be caught, and the test case will be
+deemed to have suffered an error, exactly as for an
+unexpected exception.
+
+If called with the callable and arguments omitted, will return a
+context object used like this::
+
+     with self.assertRaises(SomeException):
+         do_something()
+
+An optional keyword argument 'msg' can be provided when assertRaises
+is used as a context object.
+
+The context manager keeps a reference to the exception as
+the 'exception' attribute. This allows you to inspect the
+exception after the assertion::
+
+    with self.assertRaises(SomeException) as cm:
+        do_something()
+    the_exception = cm.exception
+    self.assertEqual(the_exception.error_code, 3)</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Raises Regex">
+<arguments>
+<arg>expected_exception</arg>
+<arg>expected_regex</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Asserts that the message in a raised exception matches a regex.
+
+Args:
+    expected_exception: Exception class expected to be raised.
+    expected_regex: Regex (re.Pattern object or string) expected
+            to be found in error message.
+    args: Function to be called and extra positional args.
+    kwargs: Extra kwargs.
+    msg: Optional message used in case of failure. Can only be used
+            when assertRaisesRegex is used as a context manager.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Raises Regexp">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Regex">
+<arguments>
+<arg>text</arg>
+<arg>expected_regex</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Fail the test unless the text matches the regular expression.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Regexp Matches">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Sequence Equal">
+<arguments>
+<arg>seq1</arg>
+<arg>seq2</arg>
+<arg>msg=None</arg>
+<arg>seq_type=None</arg>
+</arguments>
+<doc>An equality assertion for ordered sequences (like lists and tuples).
+
+For the purposes of this function, a valid ordered sequence type is one
+which can be indexed, has a length, and has an equality operator.
+
+Args:
+    seq1: The first sequence to compare.
+    seq2: The second sequence to compare.
+    seq_type: The expected datatype of the sequences, or None if no
+            datatype should be enforced.
+    msg: Optional message to use on failure instead of a list of
+            differences.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Set Equal">
+<arguments>
+<arg>set1</arg>
+<arg>set2</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>A set-specific equality assertion.
+
+Args:
+    set1: The first set to compare.
+    set2: The second set to compare.
+    msg: Optional message to use on failure instead of a list of
+            differences.
+
+assertSetEqual uses ducktyping to support different types of sets, and
+is optimized for sets specifically (parameters must support a
+difference method).</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert True">
+<arguments>
+<arg>expr</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>Check that the expression is true.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Tuple Equal">
+<arguments>
+<arg>tuple1</arg>
+<arg>tuple2</arg>
+<arg>msg=None</arg>
+</arguments>
+<doc>A tuple-specific equality assertion.
+
+Args:
+    tuple1: The first tuple to compare.
+    tuple2: The second tuple to compare.
+    msg: Optional message to use on failure instead of a list of
+            differences.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Warns">
+<arguments>
+<arg>expected_warning</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Fail unless a warning of class warnClass is triggered
+by the callable when invoked with specified positional and
+keyword arguments.  If a different type of warning is
+triggered, it will not be handled: depending on the other
+warning filtering rules in effect, it might be silenced, printed
+out, or raised as an exception.
+
+If called with the callable and arguments omitted, will return a
+context object used like this::
+
+     with self.assertWarns(SomeWarning):
+         do_something()
+
+An optional keyword argument 'msg' can be provided when assertWarns
+is used as a context object.
+
+The context manager keeps a reference to the first matching
+warning as the 'warning' attribute; similarly, the 'filename'
+and 'lineno' attributes give you information about the line
+of Python code from which the warning was triggered.
+This allows you to inspect the warning after the assertion::
+
+    with self.assertWarns(SomeWarning) as cm:
+        do_something()
+    the_warning = cm.warning
+    self.assertEqual(the_warning.some_attribute, 147)</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Assert Warns Regex">
+<arguments>
+<arg>expected_warning</arg>
+<arg>expected_regex</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Asserts that the message in a triggered warning matches a regexp.
+Basic functioning is similar to assertWarns() with the addition
+that only warnings whose messages also match the regular expression
+are considered successful matches.
+
+Args:
+    expected_warning: Warning class expected to be triggered.
+    expected_regex: Regex (re.Pattern object or string) expected
+            to be found in error message.
+    args: Function to be called and extra positional args.
+    kwargs: Extra kwargs.
+    msg: Optional message used in case of failure. Can only be used
+            when assertWarnsRegex is used as a context manager.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Count Test Cases">
+<arguments>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Debug">
+<arguments>
+</arguments>
+<doc>Run the test without collecting errors in a TestResult</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Default Test Result">
+<arguments>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Do Class Cleanups">
+<arguments>
+</arguments>
+<doc>Execute all class cleanup functions. Normally called for you after
+tearDownClass.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Do Cleanups">
+<arguments>
+</arguments>
+<doc>Execute all cleanup functions. Normally called for you after
+tearDown.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail">
+<arguments>
+<arg>msg=None</arg>
+</arguments>
+<doc>Fail immediately, with the given message.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail If">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail If Almost Equal">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail If Equal">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail Unless">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail Unless Almost Equal">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail Unless Equal">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fail Unless Raises">
+<arguments>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Id">
+<arguments>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Open My Browser">
+<arguments>
+<arg>expected</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Run">
+<arguments>
+<arg>result=None</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Set Up">
+<arguments>
+</arguments>
+<doc>Hook method for setting up the test fixture before exercising it.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Set Up Class">
+<arguments>
+</arguments>
+<doc>Hook method for setting up class fixture before running tests in the class.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Short Description">
+<arguments>
+</arguments>
+<doc>Returns a one-line description of the test, or None if no
+description has been provided.
+
+The default implementation of this method returns the first line of
+the specified test method's docstring.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Skip Test">
+<arguments>
+<arg>reason</arg>
+</arguments>
+<doc>Skip this test.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Sub Test">
+<arguments>
+<arg>*args</arg>
+<arg>**kwds</arg>
+</arguments>
+<doc>Return a context manager that will return the enclosed block
+of code in a subtest identified by the optional message and
+keyword parameters.  A failure in the subtest marks the test
+case as failed but resumes execution at the end of the enclosed
+block, allowing further test code to be executed.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Tear Down">
+<arguments>
+</arguments>
+<doc>Hook method for deconstructing the test fixture after testing it.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Tear Down Class">
+<arguments>
+</arguments>
+<doc>Hook method for deconstructing the class fixture after running all tests in the class.</doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>

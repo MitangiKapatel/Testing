@@ -76,7 +76,7 @@ ${TeamSectList}        name:teamListId
 ${SelcTeamHeaderList}  xpath://div[@class="ellipsis padding-top-8" and text()='Firstname Lastname']
 
 #Logout
-${HaderUserName}       xpath://*[@id="ecv-page-header"]/div[3]/div[1]/nav/ul/li/a/span/span/i
+${HeaderUserName}       xpath://*[@id="ecv-page-header"]/div[3]/div[1]/nav/ul/li/a/span/span/i
 ${Logout}              xpath://*[@id="step4"]/li[7]/a/span
 
 
