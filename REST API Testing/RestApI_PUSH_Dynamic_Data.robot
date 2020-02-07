@@ -6,6 +6,7 @@ Test Template    Post_Data
 *** Variables ***
 ${base_URL}    https://fakerestapi.azurewebsites.net
 ${empty}      
+${contentlist}  {'FirstName':'1231264', 'LastName':'patel', 'ID':'905', 'IDBook':''}
 #${headers}     Create Dictionary     Content-Type="application/json"   accept="application/json"   accept-encoding="gzip, deflate"    accept-language="en-US,en;q=0.8"    user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36"
 #${headers}        {'Content-Type':'application/json', 'accept':'application/json', 'accept-encoding':'gzip, deflate', 'accept-language':'en-US,en;q=0.8', 'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36'}
 
@@ -63,6 +64,7 @@ Post_Data
     ${Status_code}=    Convert To String    ${response1.status_code} 
     Log To Console    ${Status_code}           
     Should Be Equal    ${Status_code}    200
+       
     
  
     

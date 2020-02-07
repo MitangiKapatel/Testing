@@ -39,13 +39,13 @@ Put_Data
     Should Contain    ${content}    newfirstname      
  
     
-Delete_data
+Delete_Data
     Create Session    Mysession4    ${base URL}  
     ${response3}=   Delete Request    Mysession4    /api/Authors/765    
     ${Status_code}=    Convert To String    ${response3.status_code} 
     Log To Console    ${Status_code}  
   
-Get_deleted_data_Info
+Get_Deleted_Data_Info
     Create Session    mysession    ${base_URL}
     ${response}=  Get Request    mysession    api/Authors/765
     Log To Console    ${response.content}
