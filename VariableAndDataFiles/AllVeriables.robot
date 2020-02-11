@@ -1,5 +1,6 @@
 *** Settings ***
-Library    SeleniumLibrary    
+Library    SeleniumLibrary 
+Library    BuiltIn    
 
 *** Keywords ***
 Loading   
@@ -61,9 +62,9 @@ ${CreatDisBtn}         xpath://*[@daid="discussion-start-btn"]
 ${formSidebar}         xpath://*[@id="side-nav"]/ul/li[5]/a/div[1]/i
 ${AvailableForm}       xpath://*[@daid="available-forms-tab"]
 ${firstForm}           xpath://*[@class="ng-binding" and text()='2018-2019 Emergency Information for Transporters']
-${AssignBtn}           xpath:/html/body/div[1]/div/div[5]/div[1]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[4]/button
+${AssignBtnClassName}  //button[contains(@class,'orange-button')]
 ${TeamMemSectList}     xpath://*[@id="teamMember"]/div
-${ClickOnFirstTeam}    xpath:/html/body/div[1]/div/div/div/div[2]/form/div[2]/div/ul[1]/li/div[3]/span
+${FirstTeamClassNAme}    xpath://*[contains(@class,'ui-select-choices-row-inner')]
 ${finalAssign}         xpath://*[@daid="form-assign-btn"]
 
 #Services

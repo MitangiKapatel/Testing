@@ -28,30 +28,30 @@ User Loged in Or Not
 #Login Fails With anothorized Credential
 #     InvalidLogin
 
-Create Team Success
-    create new team
+# Create Team Success
+    # create new team
     
 Create Team Member Success
     select team
-    create new team member
+  #  create new team member
    
-Upload Document Success
-    checking for the document
+# Upload Document Success
+#    checking for the document
 
-Starting the Discussion Success
-    Start Discussions
+# Starting the Discussion Success
+    # Start Discussions
      
-Verifing the Forms Are Listed In Available Forms
-     Verifing Forms
+ Verifing the Forms Are Listed In Available Forms
+      Verifing Forms
      
-Verifing the Analytics
-    Checking Analytics
+# Verifing the Analytics
+    # Checking Analytics
      
-Checking for the Services
-    Checking Services
+# Checking for the Services
+    # Checking Services
      
-Logout Success
-     Logout
+# Logout Success
+     # Logout
      
 
 

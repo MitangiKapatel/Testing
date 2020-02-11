@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="SeleniumTest.PythonOrgSearch" type="library" format="ROBOT" generated="20200207 11:39:26">
+<keywordspec name="SeleniumTest.PythonOrgSearch" type="library" format="ROBOT" generated="20200210 16:16:44">
 <version></version>
 <scope>test case</scope>
 <namedargs>yes</namedargs>
@@ -727,7 +727,7 @@ tearDown.</doc>
 </kw>
 <kw name="Open My Browser">
 <arguments>
-<arg>expected</arg>
+<arg>id</arg>
 </arguments>
 <doc></doc>
 <tags>

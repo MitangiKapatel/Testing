@@ -2,7 +2,7 @@
 Documentation     Check arithmetic operations
 Library    MyLibrary    
 Library    SeleniumLibrary    
-Resource        ../Resource Files/Demo_Resources.robot
+Resource        ../Demo_Resources.robot
 
 # currently only prints to output.xml
 Suite Setup  MyLibrary.Setup

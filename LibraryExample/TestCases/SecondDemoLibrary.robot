@@ -1,5 +1,7 @@
 *** Settings ***
-Library    SeleniumTest.PythonOrgSearch    
+Library    SeleniumTest.PythonOrgSearch
+Library    SeleniumTest
+        
 Library    SeleniumLibrary    
 
      
@@ -12,9 +14,14 @@ Use InheritSeleniumLibrary Open Browser Keyword
     # ${capabilities} =    SecondLibrary.Keyword  Get Browser Desired Capabilities
     # Log    ${capabilities}
     # [Teardown]    SecondLibrary.Keyword    Close browser
-     Open My Browser  Guru99 Bank Home Page
+     Open My Browser  "gglCustomBn"
+   
+     # Get Web Element By Xpath    //*[name="uid"]   
      #Test Search In Python Org
      #Tear Down
   
 
+ 
 
+
+   

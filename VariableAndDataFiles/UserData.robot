@@ -11,8 +11,8 @@ ${Firstname}           FirstName
 ${LastName}            LastName
 ${BirthDate}           11/12/1920
 
-${TeamMemberEmailAddress}     full@gmail.com
-${TeamMEmberFullName}  fullTeamName name
+${TeamMemberEmailAddress}     MyNewfull@gmail.com
+${TeamMEmberFullName}  MyNewfullTeamName name
 
 ${DiscussoinTitle}     title
 ${DiscussionMsg}       text

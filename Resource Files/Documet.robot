@@ -3,6 +3,7 @@ Library    SeleniumLibrary
 Library    OperatingSystem
 Library    BuiltIn 
 Library    Collections  
+Library    SeleniumTest.PythonOrgSearch    
 Resource   ../VariableAndDataFiles/AllVeriables.robot
 
 *** Keywords ***
@@ -17,6 +18,7 @@ checking for the document
     Loading 
     Wait Until Element Is Visible    ${FolderOption}        timeout=40 seconds
     Wait Until Element Is Enabled    ${FolderOption}        timeout=40 seconds
+    Open My Browser    ${FolderOption}
     Click Element                    ${FolderOption}    
     #Select From List By Index    class:menu-options    1
     Wait Until Element Is Visible    ${SelectOpen}      timeout=20 seconds
